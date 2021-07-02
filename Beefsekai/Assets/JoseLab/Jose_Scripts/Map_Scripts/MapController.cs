@@ -20,6 +20,8 @@ public class MapController : MonoBehaviour
         Vector3 position = positions;
         player.transform.position = Vector3.Lerp(player.transform.position, positions, speedToMove * Time.deltaTime);
 
+        //DetectGameObj();
+
     }
 
 
@@ -57,7 +59,6 @@ public class MapController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-
 
 
 

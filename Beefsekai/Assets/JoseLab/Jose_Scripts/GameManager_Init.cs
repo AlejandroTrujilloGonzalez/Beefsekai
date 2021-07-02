@@ -41,7 +41,7 @@ public class GameManager_Init : MonoBehaviour
     //Variable consequenceToLoad me imagino que vendrá del tipo Consequences que crearemos
     
 
-    public void Consequence()
+    public void Consequence(int idChoice)
     {
         int previousMessage = messageDisplayed - 1;
         //DoConsequence(ConsequenceToLoad)
