@@ -6,14 +6,14 @@ public class ShowDialog : MonoBehaviour
 {
     //Clase basica para mostrar mensajes
 
-    DialogueSystem dialogue;
+    OldDialogueSystem dialogue;
     public Message[] messages;
     public int messageIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        dialogue = DialogueSystem.instance;
+        dialogue = OldDialogueSystem.instance;
     }
 
     void Update()

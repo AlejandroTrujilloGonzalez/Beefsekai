@@ -15,7 +15,7 @@ public class Character
 
     public Vector2 anchorPadding { get { return root.anchorMax - root.anchorMin; } }
 
-    DialogueSyst dialogue;
+    DialogueSystem dialogue;
 
 
     public void Say(string speech, bool add = false)
@@ -58,7 +58,7 @@ public class Character
         }
 
 
-        dialogue = DialogueSyst.instance;
+        dialogue = DialogueSystem.instance;
         enabled = enableOnStart;
     }
 

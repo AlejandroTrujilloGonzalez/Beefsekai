@@ -5,7 +5,7 @@ using TMPro;
 
 public class ShowDialogue : MonoBehaviour
 {
-    DialogueSyst dialogue;
+    DialogueSystem dialogue;
 
     public string[] s = new string[]
     {
@@ -18,7 +18,7 @@ public class ShowDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dialogue = DialogueSyst.instance;
+        dialogue = DialogueSystem.instance;
     }
 
     // Update is called once per frame

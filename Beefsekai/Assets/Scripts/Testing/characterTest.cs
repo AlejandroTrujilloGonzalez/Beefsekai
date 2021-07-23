@@ -31,7 +31,7 @@ public class characterTest : MonoBehaviour
             }
             else
             {
-                DialogueSyst.instance.Close();
+                DialogueSystem.instance.Close();
             }
 
             i++;

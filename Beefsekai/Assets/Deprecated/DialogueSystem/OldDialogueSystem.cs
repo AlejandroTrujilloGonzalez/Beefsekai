@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DialogueSystem : MonoBehaviour
+public class OldDialogueSystem : MonoBehaviour
 {
-    public static DialogueSystem instance;
+    public static OldDialogueSystem instance;
 
     public ELEMENTS elements;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DialogueSyst : MonoBehaviour
+public class DialogueSystem : MonoBehaviour
 {
     #region Objeto Elements con gets
     [System.Serializable]
@@ -21,7 +21,7 @@ public class DialogueSyst : MonoBehaviour
 
 
     #region MiniSingleton
-    public static DialogueSyst instance;
+    public static DialogueSystem instance;
 
     private void Awake()
     {
