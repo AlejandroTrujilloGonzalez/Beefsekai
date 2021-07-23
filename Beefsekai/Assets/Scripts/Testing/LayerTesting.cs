@@ -24,7 +24,7 @@ public class LayerTesting : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            layer.CreateNewActiveImage();
+            //layer.CreateNewActiveImage();
             Debug.Log("aparecen cosas");
             layer = bgcontroller.background;
             Debug.Log(bgcontroller.background.ToString());

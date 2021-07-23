@@ -9,7 +9,7 @@ public class BGController : MonoBehaviour
     public static BGController instance;
 
     public Layer background = new Layer();
-    public Layer foreground = new Layer();
+    //public Layer foreground = new Layer();
 
 
     private void Awake()
@@ -42,7 +42,7 @@ public class BGController : MonoBehaviour
                 if (activeImage != null)
                 {
                     allImages.Remove(activeImage);
-                    GameObject.DestroyImmediate(activeImage.gameObject);
+                    GameObject.Destroy(activeImage.gameObject);
                     activeImage = null;
                 }
             }
@@ -110,14 +110,13 @@ public class BGController : MonoBehaviour
 
         }
 
-
-
-        private void CreateNewActiveImage()
+        public void CreateNewActiveImage()
         {
+            Debug.Log("Test");
             GameObject go = Instantiate(newImageObjectReference, root.transform) as GameObject;
             go.SetActive(true);
             RawImage raw = go.GetComponent<RawImage>();
-            activeImage = raw;
+            raw = activeImage;
             allImages.Add(raw);
         }
 
