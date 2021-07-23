@@ -5,6 +5,7 @@ using UnityEngine;
 public class LayerTesting : MonoBehaviour
 {
     BGController bgcontroller;
+    BGController.Layer test;
 
     public Texture texture;
     public float speed;
@@ -23,14 +24,15 @@ public class LayerTesting : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            layer.CreateNewActiveImage();
             Debug.Log("aparecen cosas");
             layer = bgcontroller.background;
             Debug.Log(bgcontroller.background.ToString());
         }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            layer = bgcontroller.foreground;
-        }
+        //if (Input.GetKeyDown(KeyCode.W))
+        //{
+        //    layer = bgcontroller.foreground;
+        //}
 
 
         if (Input.GetKey(KeyCode.T))
@@ -42,7 +44,7 @@ public class LayerTesting : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 layer.SetTexture(texture);
             }
