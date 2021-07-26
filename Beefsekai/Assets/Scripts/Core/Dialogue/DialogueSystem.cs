@@ -31,22 +31,21 @@ public class DialogueSystem : MonoBehaviour
 
     public bool isSpeaking { get { return speaking != null; } }
     Coroutine speaking = null;
+
+    TextArchitect textArchitect = null;
+
     public bool isWaitingForUserInput = false;
 
     private string targetSpeech = "";
 
-    public void Say(string speech, string speaker)
+    public void Say(string speech, string speaker = "", bool additive = false)
     {
         StopSpeaking();
+
+        if (additive)
+            speechText.text = targetSpeech;
 
         speaking = StartCoroutine(Speaking(speech, false, speaker));
-    }
-
-    public void SayAdd(string speech, string speaker = "")
-    {
-        StopSpeaking();
-        speechText.text = targetSpeech;
-        speaking = StartCoroutine(Speaking(speech, true, speaker));
     }
 
     public void StopSpeaking()
@@ -55,31 +54,39 @@ public class DialogueSystem : MonoBehaviour
         {
             StopCoroutine(speaking);
         }
+
+        if (textArchitect != null && textArchitect.isConstructing)
+        {
+            textArchitect.Stop();
+        }
+
         speaking = null;
     }
 
     IEnumerator Speaking(string speech, bool additive, string speaker)
     {
         speechPanel.SetActive(true);
-        targetSpeech = speech;
-        if (!additive)
-        {
-            speechText.text = "";
-        }
-        else
-        {
-            targetSpeech = speechText.text + targetSpeech;
-        }
 
+        string additiveSpeech = additive ? speechText.text : "";
+
+        targetSpeech = additiveSpeech + speech;
+
+        textArchitect = new TextArchitect(speech, additiveSpeech);
 
         speakerNameText.text = DetermineSpeaker(speaker);
         isWaitingForUserInput = false;
 
-        while (speechText.text != targetSpeech)
+        while (textArchitect.isConstructing)
         {
-            speechText.text += targetSpeech[speechText.text.Length];
+            if (Input.GetKey(KeyCode.Space))
+                textArchitect.skip = true;
+
+            speechText.text = textArchitect.currentText;
+
             yield return new WaitForEndOfFrame();
         }
+
+        speechText.text = textArchitect.currentText;
 
         isWaitingForUserInput = true;
 

@@ -25,14 +25,8 @@ public class Character
             enabled = true;
         }
 
-        if (!add)
-        {
-            dialogue.Say(speech, characterName);
-        }
-        else
-        {
-            dialogue.SayAdd(speech, characterName);
-        }
+            dialogue.Say(speech, characterName, add);
+
 
     }
 
@@ -147,8 +141,25 @@ public class Character
         Sprite sprite = Resources.Load<Sprite>("Art/CharactersImage/moneco_Bartowolo");//Esto es otra forma de llamar a los sprites, en vez de por su index dentro del spriteseet por su nombre, nombre que también está en una clase del characmanager, es opcional hacelro asi o de la otra forma
         return sprite;
 
-        //Sprite[] sprites = Resources.LoadAll<Sprite>("Art/CharactersImage/" + characterName);
-        //return sprites[index];
+       Sprite[] sprites = Resources.LoadAll<Sprite>("Art/CharactersImage/" + characterName);
+        return sprites[index];
+    }
+
+    public Sprite GetSprite(string spriteName = "")
+    {
+
+        Sprite sprite = Resources.Load<Sprite>("Art/CharactersImage/moneco_Bartowolo");//Esto es otra forma de llamar a los sprites, en vez de por su index dentro del spriteseet por su nombre, nombre que también está en una clase del characmanager, es opcional hacelro asi o de la otra forma
+        return sprite;
+
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Art/CharactersImage/" + characterName);
+
+        for(int i = 0; i < sprites.Length; i++)
+        {
+            if (sprites[i].name == spriteName)
+                return sprites[i];
+        }
+
+        return sprites.Length > 0 ? sprites[0] : null;
     }
 
     public void SetBody(int index)
@@ -160,6 +171,11 @@ public class Character
         renderers.bodyRender.sprite = sprite;
     }
 
+    public void SetBody(string spriteName)
+    {
+        renderers.bodyRender.sprite = GetSprite(spriteName);
+    }
+
     public void SetExpression(int index)
     {
         renderers.expressionRenderer.sprite = GetSprite(index);
@@ -167,6 +183,11 @@ public class Character
     public void SetExpression(Sprite sprite)
     {
         renderers.expressionRenderer.sprite = sprite;
+    }
+
+    public void SetExpression(string spriteName)
+    {
+        renderers.expressionRenderer.sprite = GetSprite(spriteName);
     }
 
     //Transition Body////////////
