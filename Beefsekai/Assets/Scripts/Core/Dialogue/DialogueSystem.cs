@@ -15,9 +15,14 @@ public class DialogueSystem : MonoBehaviour
     }
     public ELEMENTS elements;
     public GameObject speechPanel { get { return elements.speechPanel; } }
+
+    public GameObject speakerNamePane;
     public TMP_Text speakerNameText { get { return elements.speakerNameText; } }
     public TMP_Text speechText { get { return elements.speechText; } }
+
+    //public GameObject speakerNamePane { get { return elements.speakerNamePane; } }
     #endregion
+
 
 
     #region MiniSingleton
@@ -71,9 +76,11 @@ public class DialogueSystem : MonoBehaviour
 
         targetSpeech = additiveSpeech + speech;
 
-        textArchitect = new TextArchitect(speech, additiveSpeech);
+        textArchitect = new TextArchitect(speechText, speech, additiveSpeech);
 
         speakerNameText.text = DetermineSpeaker(speaker);
+
+        speakerNamePane.SetActive(speakerNameText.text != "");
         isWaitingForUserInput = false;
 
         while (textArchitect.isConstructing)
@@ -81,12 +88,8 @@ public class DialogueSystem : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
                 textArchitect.skip = true;
 
-            speechText.text = textArchitect.currentText;
-
             yield return new WaitForEndOfFrame();
         }
-
-        speechText.text = textArchitect.currentText;
 
         isWaitingForUserInput = true;
 

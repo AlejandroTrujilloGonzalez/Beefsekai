@@ -30,6 +30,50 @@ public class Character
 
     }
 
+    public void Flip()
+    {
+        root.localScale = new Vector3(root.localScale.x * -1, 1, 1);
+    }
+
+    public bool isFacingLeft { get { return root.localScale.x == 1; } }
+
+    public void FaceLeft()
+    {
+        root.localScale = Vector3.one;
+    }
+
+
+    public bool isFacingRight { get { return root.localScale.y == -1; } }
+
+    public void FaceRight()
+    {
+        root.localScale = new Vector3(-1, 1, 1);
+    }
+
+
+    public void FadeOut(float speed = 3, bool smooth = false)
+    {
+        Sprite alphaSprite = Resources.Load<Sprite>("Images/AlphaOnly");
+
+        lastBodySprite = renderers.bodyRender.sprite;
+        lastFacialSprite = renderers.expressionRenderer.sprite;
+
+        TransitionBody(alphaSprite, speed, smooth);
+        TransitionExpression(alphaSprite, speed, smooth);
+    }
+
+    Sprite lastBodySprite, lastFacialSprite = null;
+
+
+    public void FadeIn(float speed = 3, bool smooth = false)
+    {
+        if (lastBodySprite != null && lastFacialSprite != null)
+        {
+            TransitionBody(lastBodySprite, speed, smooth);
+            TransitionExpression(lastFacialSprite, speed, smooth);
+        }
+    }
+
     //Crear un nuevo personaje//////////////////////////////////////////////////////////////////////////////////
     public Character(string _name, bool enableOnStart = true)//Esto da una alerta y no entiendo el motivo
     {
@@ -196,10 +240,7 @@ public class Character
 
     public void TransitionBody(Sprite sprite, float speed, bool smooth)
     {
-        if (renderers.bodyRender.sprite == sprite)
-        {
-            return;
-        }
+
         StopTransitioningBody();
         transitioningBody = CharacterManager.instance.StartCoroutine(TransitioningBody(sprite, speed, smooth));
     }
@@ -251,10 +292,7 @@ public class Character
 
     public void TransitionExpression(Sprite sprite, float speed, bool smooth)
     {
-        if (renderers.expressionRenderer.sprite == sprite)
-        {
-            return;
-        }
+
         StopTransitioningExpression();
         transitioningExpression = CharacterManager.instance.StartCoroutine(TransitioningExpression(sprite, speed, smooth));
     }
