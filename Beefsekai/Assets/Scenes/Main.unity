@@ -922,7 +922,7 @@ GameObject:
   - component: {fileID: 539383732}
   - component: {fileID: 539383733}
   m_Layer: 5
-  m_Name: LayerImage
+  m_Name: layerImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 539383730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -975,16 +975,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &544341173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &678682734
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2019,12 +2016,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150931277}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 040278e179264d947b018fd25836b973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texture: {fileID: 21300000, guid: 468b248e8503b6746b7ca64c35dd6e11, type: 3}
+  texture: {fileID: 2800000, guid: 720a6924df9368e4197bbcc7366d671c, type: 3}
   speed: 1
   smooth: 1
 --- !u!114 &1150931282
@@ -2034,7 +2031,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150931277}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 716ebb49389f3f5469c011f0027bc931, type: 3}
   m_Name: 
@@ -2339,12 +2336,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1462020906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6046072251568f1429502dd70c92d028, type: 3}
+  m_Script: {fileID: 11500000, guid: 726469e58e0ea0b4780b72b64965952e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   background:
     root: {fileID: 678682733}
     newImageObjectReference: {fileID: 539383730}
+    activeImage: {fileID: 0}
+    allImages: []
+  foreground:
+    root: {fileID: 0}
+    newImageObjectReference: {fileID: 0}
     activeImage: {fileID: 0}
     allImages: []
 --- !u!1 &1462514195
@@ -2520,7 +2522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1665650034
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2566,7 +2568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1759731522
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2836,7 +2838,7 @@ GameObject:
   - component: {fileID: 2045487619}
   - component: {fileID: 2045487618}
   m_Layer: 5
-  m_Name: LayerImage
+  m_Name: layerImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

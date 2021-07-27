@@ -16,7 +16,7 @@ public class BackGround
     public BackGround(string _name)
     {
         BackGroundController bg = BackGroundController.instance;
-        GameObject prefab = Resources.Load("Art/Temporal/BGContenedor[" + _name + "]") as GameObject;//Hay que organizar esto si cambiamos las carpetas
+        GameObject prefab = Resources.Load("Images/UI/Backdrops/BGContenedor[" + _name + "]") as GameObject;//Hay que organizar esto si cambiamos las carpetas
         GameObject ob = GameObject.Instantiate(prefab, bg.backgroundPanel);
 
         root = ob.GetComponent<RectTransform>();

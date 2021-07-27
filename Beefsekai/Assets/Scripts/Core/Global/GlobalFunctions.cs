@@ -31,7 +31,7 @@ public class GlobalFunctions : MonoBehaviour
 				else
 				{
 					allImages.RemoveAt(i);
-					DestroyImmediate(image.gameObject);
+					Destroy(image.gameObject);
 					continue;
 				}
 			}
@@ -65,8 +65,13 @@ public class GlobalFunctions : MonoBehaviour
 				}
 				else
 				{
+					//MovieTexture mov = image.texture as MovieTexture;
+					//if (mov != null)
+					//{
+					//    mov.Stop();
+					//}
 					allImages.RemoveAt(i);
-					DestroyImmediate(image.gameObject);
+					Destroy(image.gameObject);
 					continue;
 				}
 			}

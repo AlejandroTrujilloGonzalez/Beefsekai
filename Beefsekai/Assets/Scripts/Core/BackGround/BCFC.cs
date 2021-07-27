@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BGController : MonoBehaviour
+public class BCFC : MonoBehaviour
 {
 
-    public static BGController instance;
+    public static BCFC instance;
 
-    public Layer background = new Layer();
-    //public Layer foreground = new Layer();
+    public LAYER background = new LAYER();
+    //public LAYER cinematic = new LAYER();
+    public LAYER foreground = new LAYER();
 
 
     private void Awake()
@@ -18,7 +19,7 @@ public class BGController : MonoBehaviour
     }
 
     [System.Serializable]
-    public class Layer
+    public class LAYER
     {
         public GameObject root;
         public GameObject newImageObjectReference;
@@ -28,6 +29,19 @@ public class BGController : MonoBehaviour
 
         public void SetTexture(Texture texture)
         {
+
+            if (activeImage != null && activeImage.texture != null)
+            {
+                //MovieTexture mov = texture as MovieTexture;
+                //if (mov != null)
+                //{
+                //    mov.Stop();
+                //}
+
+                Debug.Log("no hay imagen");
+            }
+
+
             if (texture != null)
             {
                 if (activeImage == null)
@@ -36,6 +50,15 @@ public class BGController : MonoBehaviour
                 }
                 activeImage.texture = texture;
                 activeImage.color = GlobalFunctions.SetAlpha(activeImage.color, 1f);
+
+                //MovieTexture mov = texture as MovieTexture;
+                //if (mov != null)
+                //{
+                //    mov.loop = ifMovieThenLoop(Parametro bool del metodo);
+                //    mov.Play();
+                //}
+
+
             }
             else
             {
@@ -58,14 +81,14 @@ public class BGController : MonoBehaviour
             }
 
             StopTransitioning();
-            transitioning = BGController.instance.StartCoroutine(Transitioning(texture,speed,smooth));
+            transitioning = BCFC.instance.StartCoroutine(Transitioning(texture,speed,smooth));
         }
 
         private void StopTransitioning()
         {
             if (isTransitioning)
             {
-                BGController.instance.StopCoroutine(transitioning);
+                BCFC.instance.StopCoroutine(transitioning);
             }
 
             transitioning = null;
@@ -93,6 +116,13 @@ public class BGController : MonoBehaviour
                     CreateNewActiveImage();
                     activeImage.texture = texture;
                     activeImage.color = GlobalFunctions.SetAlpha(activeImage.color, 0f);
+
+                    //MovieTexture mov = texture as MovieTexture;
+                    //if (mov != null)
+                    //{
+                    //    mov.loop = ifMovieThenLoop(Parametro bool del metodo);
+                    //    mov.Play();
+                    //}
                 }
             }
             else
@@ -116,7 +146,7 @@ public class BGController : MonoBehaviour
             GameObject go = Instantiate(newImageObjectReference, root.transform) as GameObject;
             go.SetActive(true);
             RawImage raw = go.GetComponent<RawImage>();
-            raw = activeImage;
+            activeImage = raw;
             allImages.Add(raw);
         }
 

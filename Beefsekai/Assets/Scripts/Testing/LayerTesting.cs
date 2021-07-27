@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class LayerTesting : MonoBehaviour
 {
-    BGController bgcontroller;
-    BGController.Layer test;
+    BCFC bgcontroller;
+    BCFC.LAYER test;
 
     public Texture texture;
+    //public MovieTexture mov;
     public float speed;
     public bool smooth;
 
     // Start is called before the first frame update
     void Start()
     {
-        bgcontroller = BGController.instance;
+        bgcontroller = BCFC.instance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        BGController.Layer layer = null;
+        BCFC.LAYER layer = null;
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -29,10 +30,10 @@ public class LayerTesting : MonoBehaviour
             layer = bgcontroller.background;
             Debug.Log(bgcontroller.background.ToString());
         }
-        //if (Input.GetKeyDown(KeyCode.W))
-        //{
-        //    layer = bgcontroller.foreground;
-        //}
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            layer = bgcontroller.foreground;
+        }
 
 
         if (Input.GetKey(KeyCode.T))
@@ -46,6 +47,7 @@ public class LayerTesting : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
+                Debug.Log(texture.name);
                 layer.SetTexture(texture);
             }
         }

@@ -84,7 +84,7 @@ public class NovelController : MonoBehaviour
     void HandleEventsFromLine(string events)
     {
 
-        string actions = events.Split(' ');
+        string[] actions = events.Split(' ');//El tipo del video no hace un array aquí pero seguramente lo corregirá más adelante
 
         foreach(string action in actions)
         {
@@ -92,7 +92,7 @@ public class NovelController : MonoBehaviour
         }
     }
     
-    HandleAction(string action)
+    void HandleAction(string action)
     {
         print("Handle events [" + action + "]");
 
@@ -100,23 +100,23 @@ public class NovelController : MonoBehaviour
 
         if (data[0] == "setBackground")
         {
-            Command_SetLayerImage(data[1], BFCF.instance.background);
+            Command_SetLayerImage(data[1], BCFC.instance.background);
             return;
         }
 
-        if (data[0] == "setCinematic")
+        //if (data[0] == "setCinematic")/////////////////////////////////////De momento no tenemos ni primeros planos ni cinmáticas ni fondos con videos, esto no nos sirve por ahora
+        //{
+        //    Command_SetLayerImage(data[1], BCFC.instance.cinematic);
+        //    return;
+        //}
+
+        if (data[0] == "setForeground")//En principio tampoco tendremos foregrouund
         {
-            Command_SetLayerImage(data[1], BFCF.instance.cinematic);
+            Command_SetLayerImage(data[1], BCFC.instance.foreground);
             return;
         }
 
-        if (data[0] == "setForeground")
-        {
-            Command_SetLayerImage(data[1], BFCF.instance.foreground);
-            return;
-        }
-
-        if(data[0] == "playSound")
+        if (data[0] == "playSound")
         {
             Command_PlaySound(data[1]);
             return;
@@ -185,26 +185,32 @@ public class NovelController : MonoBehaviour
         layer.TransitionToTexture(tex, spd, smooth);
     }
 
-    void Command_PlaySound()
+    void Command_PlaySound(string data)
     {
         AudioClip clip = Resources.Load("Audio/SFX/" + data) as AudioClip;
 
         if (clip != null)
-            AudioManager.instance.PlaySFX(clip);
-
+        {
+            //AudioManager.instance.PlaySFX(clip);
+            Debug.Log("PlaySoundMetodo");
+        }
         else
             Debug.LogError("clip does not exist - " + data);
+
     }
 
-    void Command_PlayMusic()
+    void Command_PlayMusic(string data)
     {
         AudioClip clip = Resources.Load("Audio/Music/" + data) as AudioClip;
 
         if (clip != null)
-            AudioManager.instance.PlaySong(clip);
-
+        {
+            Debug.Log("PlayMusic metodo");
+            //AudioManager.instance.PlaySong(clip);//Las cargas de música las podemos dejar para más adelante, estos errores se subsanarán en principio cuando implementemos el código del video de audiomanager
+        }
         else
             Debug.LogError("clip does not exist - " + data);
+
     }
 
    void Command_MoveCharacter(string data)
@@ -223,7 +229,7 @@ public class NovelController : MonoBehaviour
 
         Character c = CharacterManager.instance.GetCharacters(character);
 
-        c.MoveTo(new Vector2(locationX, locationY), , smooth);
+        c.MoveTo(new Vector2(locationX, locationY), speed, smooth);
     }
 
     void Command_SetPosition(string data)

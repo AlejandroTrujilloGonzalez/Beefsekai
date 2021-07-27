@@ -139,9 +139,9 @@ public class Character
     {
 
         Sprite sprite = Resources.Load<Sprite>("Art/CharactersImage/moneco_Bartowolo");//Esto es otra forma de llamar a los sprites, en vez de por su index dentro del spriteseet por su nombre, nombre que también está en una clase del characmanager, es opcional hacelro asi o de la otra forma
-        return sprite;
+        //return sprite;
 
-       Sprite[] sprites = Resources.LoadAll<Sprite>("Art/CharactersImage/" + characterName);
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Art/CharactersImage/" + characterName);
         return sprites[index];
     }
 
@@ -149,7 +149,7 @@ public class Character
     {
 
         Sprite sprite = Resources.Load<Sprite>("Art/CharactersImage/moneco_Bartowolo");//Esto es otra forma de llamar a los sprites, en vez de por su index dentro del spriteseet por su nombre, nombre que también está en una clase del characmanager, es opcional hacelro asi o de la otra forma
-        return sprite;
+        //return sprite;
 
         Sprite[] sprites = Resources.LoadAll<Sprite>("Art/CharactersImage/" + characterName);
 
