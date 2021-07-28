@@ -12,16 +12,19 @@ public class LayerTesting : MonoBehaviour
     public float speed;
     public bool smooth;
 
+    BCFC.LAYER layer;
+
     // Start is called before the first frame update
     void Start()
     {
         bgcontroller = BCFC.instance;
+        layer = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        BCFC.LAYER layer = null;
+        //BCFC.LAYER layer = null; HAY QUE SER HIJODEPUTA
 
         if (Input.GetKeyDown(KeyCode.Q))
         {

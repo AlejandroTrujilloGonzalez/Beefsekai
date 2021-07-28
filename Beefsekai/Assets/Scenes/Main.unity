@@ -881,7 +881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &498786463
 Transform:
   m_ObjectHideFlags: 0
@@ -2021,7 +2021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040278e179264d947b018fd25836b973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: 720a6924df9368e4197bbcc7366d671c, type: 3}
+  texture: {fileID: 2800000, guid: f3806c74f775a244ba0e8059e7cd0ed2, type: 3}
   speed: 1
   smooth: 1
 --- !u!114 &1150931282
@@ -2101,6 +2101,7 @@ MonoBehaviour:
     speechPanel: {fileID: 1602571784}
     speakerNameText: {fileID: 25566605}
     speechText: {fileID: 903852023}
+  speakerNamePane: {fileID: 0}
   isWaitingForUserInput: 0
 --- !u!1 &1352672011
 GameObject:
