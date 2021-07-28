@@ -5,6 +5,8 @@ using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
+    public TextArchitect currentArchitect { get { return textArchitect; } }
+
     #region Objeto Elements con gets
     [System.Serializable]
     public class ELEMENTS
@@ -41,7 +43,7 @@ public class DialogueSystem : MonoBehaviour
 
     public bool isWaitingForUserInput = false;
 
-    private string targetSpeech = "";
+    public string targetSpeech = "";
 
     public void Say(string speech, string speaker = "", bool additive = false)
     {
@@ -76,7 +78,10 @@ public class DialogueSystem : MonoBehaviour
 
         targetSpeech = additiveSpeech + speech;
 
-        textArchitect = new TextArchitect(speechText, speech, additiveSpeech);
+        if (textArchitect == null)
+            textArchitect = new TextArchitect(speechText, speech, additiveSpeech);
+        else
+            textArchitect.Renew(speech, additiveSpeech);
 
         speakerNameText.text = DetermineSpeaker(speaker);
 
