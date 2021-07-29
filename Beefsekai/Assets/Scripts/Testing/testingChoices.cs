@@ -25,7 +25,7 @@ public class testingChoices : MonoBehaviour
         //Copio lo que tiene el pavo para tener un ejemplo de como usa las elecciones
         //Load story part 1
         NovelController.instance.LoadChapterFile("story_1"); yield return new WaitForEndOfFrame();
-        while (NovelController.instance.isHandLingChapterFile)
+        while (NovelController.instance.isHandlingChapterFile)
         {
             yield return new WaitForEndOfFrame();
         }
@@ -37,7 +37,7 @@ public class testingChoices : MonoBehaviour
         }
 
         //eleccion 1
-        if (ChoiceScreen.LastChoiceMade.index == 0)
+        if (ChoiceScreen.lastChoiceMade.index == 0)
         {
             NovelController.instance.LoadChapterFile("story_a1");
         }
@@ -49,7 +49,7 @@ public class testingChoices : MonoBehaviour
         yield return new WaitForEndOfFrame();
         NovelController.instance.Next();
 
-        while (NovelController.instance.isHandLingChapterFile)
+        while (NovelController.instance.isHandlingChapterFile)
             yield return new WaitForEndOfFrame();
 
 
