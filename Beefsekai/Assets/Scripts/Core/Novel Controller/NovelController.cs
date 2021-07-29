@@ -50,6 +50,7 @@ public class NovelController : MonoBehaviour
         _next = true;
     }
 
+    public bool isHandLingChapterFile { get { return handlingChapterFile != null; } }
     Coroutine handlingChapterFile = null;
     IEnumerator HandlingChapterFile()
     {
@@ -69,6 +70,9 @@ public class NovelController : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
+
+        handlingChapterFile = null;
+
     }
 
    // string cachedLastSpeaker = "";
