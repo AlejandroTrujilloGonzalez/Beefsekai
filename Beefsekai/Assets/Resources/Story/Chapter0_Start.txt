@@ -38,10 +38,14 @@ Madrina "No puedo devolverte a tu mundo. Lo siento, no tengo la autoridad para e
 
 choice "Estoy bastante confundido"
 {
-    "¿Y quién tiene la autoridad?"
-      *Madrina “Alguien a quien le debo un favor, quizá algún día lo conozcas. Pero ahora…”
-    "¿Algo parecido?"
-      *Madrina “Sí. Mira, yo no pertenezco exactamente a tu mundo, pero el mío tiene problemas. Verás…”
+  "Y quien tiene la autoridad?"
+	*Madrina "Alguien a quien le debo un favor, quizá algun dia lo conozcas"
+  "Algo parecido?"
+	*Madrina "Si, Mira. yo no pertenezco exactamente a tu mundo, pero el mio tiene problemas. Veras..."
+  "Y quien tiene la autoridad?"
+	*Madrina "Alguien a quien le debo un favor, quizá algun dia lo conozcas"
+  "Algo parecido?"
+	*Madrina "Si, Mira. yo no pertenezco exactamente a tu mundo, pero el mio tiene problemas. Veras..."
 }
 
 Madrina "Éste es mi mundo. Es… un poco diferente del tuyo, desde luego. Su nombre es {a}Ruwulia."
@@ -57,12 +61,12 @@ Madrina "Lo que te ofrezco es una segunda vida, en mi mundo. Te daré un cuerpo 
 Yo "¿Y qué tengo que hacer a cambio?"
 Madrina "De hecho, nada. Intenta disfrutar de tu vida lo más posible, pero… si vieras algo que pudieras hacer por ayudar, inténtalo. Por favor. Estoy bastante segura de que sabrás cómo hacerlo."
 
-choice "¿Qué hacer?"
+choice "Estoy bastante confundido"
 {
- "Si no acepto..."
-   Madrina "Tendrías que quedarte aquí. Con el tiempo, tu alma se disolvería, y no sé qué sería de ti."
- "¿Es posible regresar a mi mundo?"
-   Madrina "Bueno… puedes intentar encontrar a alguien con la autoridad necesaria y pedirle el favor, pero es como buscar una aguja en un pajar. Ni siquiera yo sé quien es."
+  "Y quien tiene la autoridad?"
+	*Madrina "Alguien a quien le debo un favor, quizá algun dia lo conozcas"
+  "Algo parecido?"
+	*Madrina "Si, Mira. yo no pertenezco exactamente a tu mundo, pero el mio tiene problemas. Veras..."
 }
 narrator "Sin pistas, ¿eh?"
 narrator "De repente se hizo el silencio. Pienso en lo que quiero hacer."
