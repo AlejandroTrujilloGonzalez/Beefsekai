@@ -9,7 +9,7 @@ public class NovelController : MonoBehaviour
 
     List<string> data = new List<string>();
 
-    int progress = 0;
+    //int progress = 0;//////////////////////////////////Lo comento porque no se está usando, si es necesario para algo se descomenta, por el video que he visto al parecer lo cambia por otra variable
 
     void Awake()
     {
@@ -39,7 +39,10 @@ public class NovelController : MonoBehaviour
 
         if (handlingChapterFile != null)
             StopCoroutine(handlingChapterFile);
-        handlingChapterFile = StartCoroutine(HandlingChapterFile());        
+        handlingChapterFile = StartCoroutine(HandlingChapterFile());
+
+        Next();//auto start the chapter
+
     }
 
     //Trigger que avanza el progreso por el chapter file
@@ -52,21 +55,32 @@ public class NovelController : MonoBehaviour
 
     public bool isHandLingChapterFile { get { return handlingChapterFile != null; } }
     Coroutine handlingChapterFile = null;
+    [HideInInspector] public int chapterProgress = 0;
     IEnumerator HandlingChapterFile()
     {
         //progreso de las lineas en este capitulo
-        int progress = 0;
+        chapterProgress = 0;
 
-        while (progress < data.Count)
+        while (chapterProgress < data.Count)
         {
-            if (_next)
+            if (_next)//Esto es una eleccion
             {
-                HandLeLine(data[progress]);
-                progress++;
-                while (isHandlingLine)
+                string line = data[chapterProgress];
+                if (line.StartsWith("choice"))
                 {
-                    yield return new WaitForEndOfFrame();
+                    yield return HandlingChoiceLine(line);
+                    chapterProgress++;
                 }
+                else//Esto es una linea normal de dialogo
+                {
+                    HandLeLine(line);
+                    chapterProgress++;
+                    while (isHandlingLine)
+                    {
+                        yield return new WaitForEndOfFrame();
+                    }
+                }
+
             }
             yield return new WaitForEndOfFrame();
         }
@@ -74,6 +88,63 @@ public class NovelController : MonoBehaviour
         handlingChapterFile = null;
 
     }
+
+    IEnumerator HandlingChoiceLine(string line)
+    {
+        string title = line.Split('"')[1];
+        List<string> choices = new List<string>();
+        List<string> actions = new List<string>();
+
+        bool gatheringChoices = true;
+        while (gatheringChoices)
+        {
+            chapterProgress++;
+            line = data[chapterProgress];
+
+            if (line == "{")
+            {
+                continue;
+            }
+
+            line = line.Replace("     ", "");
+
+            if (line != "}")
+            {
+                choices.Add(line.Split('"')[1]);
+                actions.Add(data[chapterProgress + 1].Replace("     ", ""));
+                chapterProgress++;
+            }
+            else
+            {
+                gatheringChoices = false;
+            }
+
+        }
+
+        if (choices.Count > 0)
+        {
+            ChoiceScreen.Show(title, choices.ToArray()); yield return new WaitForEndOfFrame();
+            while (ChoiceScreen.isWaitingForChoiceToBeMade)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
+            string action = actions[ChoiceScreen.LastChoiceMade.index];
+            HandLeLine(action);
+
+            while (isHandlingLine)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
+        }
+        else
+        {
+            Debug.LogError("Invalid choice operation. No choices were found");
+        }
+
+    }
+
 
    // string cachedLastSpeaker = "";
     void HandLeLine(string rawLine)
@@ -224,8 +295,36 @@ public class NovelController : MonoBehaviour
             case ("faceRight"):
                 Command_FaceRight(data[1]);
                 break;
+
+            case ("transBackground"):
+                Command_TransLayer(BCFC.instance.background, data[1]);
+                break;
+
+            //case ("transCinematic"):
+            //    Command_TransLayer(BCFC.instance.cinematic, data[1]);
+            //    break;
+
+            case ("transForeground"):
+                Command_TransLayer(BCFC.instance.foreground, data[1]);
+                break;
+
+            case ("showScene"):
+                Command_ShowScene(data[1]);
+                break;
+
+            case "Load":
+                Command_Load(data[1]);
+                break;
+                
+                
         }
 
+    }
+
+
+    void Command_Load(string chapterName)
+    {
+        NovelController.instance.LoadChapterFile(chapterName);
     }
 
     void Command_SetLayerImage(string data, BCFC.LAYER layer)
@@ -463,4 +562,54 @@ public class NovelController : MonoBehaviour
                 c.FadeIn(speed, smooth);
         }
     }
+
+    void Command_TransLayer(BCFC.LAYER layer, string data)
+    {
+        string[] parameters = data.Split(',');
+
+        string texName = parameters[0];
+        string transTexName = parameters[1];
+        Texture2D tex = texName == "null" ? null : Resources.Load("Images/UI/Backdrops/" + texName) as Texture2D;
+        Texture2D transTex = Resources.Load("Images/TransitionEffects/" + transTexName) as Texture2D;
+
+        float spd = 2f;
+        bool smooth = false;
+
+        for (int i = 2; i < parameters.Length; i++)
+        {
+            string p = parameters[i];
+            float fVal = 0;
+            bool bVal = false;
+            if (float.TryParse(p, out fVal))
+            { spd = fVal; continue; }
+            if (bool.TryParse(p, out bVal))
+            { smooth = bVal; continue; }
+        }
+
+        TransitionMaster.TransitionLayer(layer, tex, transTex, spd, smooth);
+    }
+
+    void Command_ShowScene(string data)
+    {
+        string[] parameters = data.Split(',');
+        bool show = bool.Parse(parameters[0]);
+        string texName = parameters[1];
+        Texture2D transTex = Resources.Load("Images/TransitionEffects/" + texName) as Texture2D;
+        float spd = 2f;
+        bool smooth = false;
+
+        for (int i = 2; i < parameters.Length; i++)
+        {
+            string p = parameters[i];
+            float fVal = 0;
+            bool bVal = false;
+            if (float.TryParse(p, out fVal))
+            { spd = fVal; continue; }
+            if (bool.TryParse(p, out bVal))
+            { smooth = bVal; continue; }
+        }
+
+        TransitionMaster.ShowScene(show, spd, smooth, transTex);
+    }
+
 }

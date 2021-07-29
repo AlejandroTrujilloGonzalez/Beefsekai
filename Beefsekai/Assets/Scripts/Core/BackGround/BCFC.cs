@@ -26,7 +26,8 @@ public class BCFC : MonoBehaviour
         public RawImage activeImage;
         public List<RawImage> allImages = new List<RawImage>();
 
-
+        //caching for special transitions on this layer.
+        public Coroutine specialTransitionCoroutine = null;
         public void SetTexture(Texture texture)
         {
 
