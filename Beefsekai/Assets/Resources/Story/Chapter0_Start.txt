@@ -24,7 +24,7 @@ narrator "Tenía delante de mí... ¿Un corgi?"
 Voz femenina "Eso ha sido p'haberse matao. Literalmente hablando."
 narrator "La criatura agita un palito que lleva en mi dirección."
 "Bueno, supongo que lo primero es lo primero. Soy tu Bara Madrina."
-Yo "¿Mande?"
+Yo "¿Mande?" 
 *Madrina "Tu Bara Madrina."
 narrator "Me he debido dar un buen golpe. Me intento buscar un chichón, pero..."
 "No me siento las manos... {wa 1}ni la cabeza."
@@ -95,8 +95,8 @@ narrator "En una pared hay un gran trozo de metal pulido, y observo mi reflejo e
 narrator "Complexión, delgada. Pelo, claro. Brazos... {wa 1}normaluchos. Ropa... prefiero no pensar en ello."
 narrator "En ese momento, me doy cuenta de los ojos de la gente clavados en mí. Soy la única persona que no parece que desayune esteroides a la proteína."
 Yo "Vale, tengo que salir de aquí."
-Voz "¿Y a dónde exactamente quieres ir, tapón?"enter(Tigre)
-narrator "Veo ante mí a dos bicharracos. Uno es un tigre venido a más y el otro una estantería con patas."enter(Macarra)
+Voz "¿Y a dónde exactamente quieres ir, tapón?"enter(Tigre) move(Tigre,0.1) next
+narrator "Veo ante mí a dos bicharracos. Uno es un tigre venido a más y el otro una estantería con patas."enter(Macarra) move(Macarra,0) next
 narrator "Me miran con aspecto burlón. No me están temblando las piernas, para nada."
 Tigre "¿Qué tenemos aquí? No había visto a alguien tan canijo en mi vida."
 Macarra "¿Te has perdido? Diría que con esas piernecitas no puedes ir muy lejos."
@@ -134,11 +134,11 @@ Yo "¿Qué no es posible?"
 Feliodora "Hueles a brujería. No. APESTAS a brujería y a basura. Pero no hueles a nada más."
 Yo "¿Y qué hay de raro en eso?"
 Feliodora "No tienes olor corporal. No hueles a comida, ni a dinero, ni a hogar."
- "Si no supiera que no es posible, diría que..."
+"Si no supiera que no es posible, diría que..."
 Yo "¿Qué? ¿Qué pasa?"
 narrator "Feliodora me agarra y me arrastra hacia el puesto, de donde coge un artilugio cuadrado."
 Feliodora "Puesto 632, ¿me recibís?, soy Feli del puesto 632. {wa 1}Necesito a los muchachos y al brujo. Tengo una situación delicada."
 narrator "Feliodora gira su cabeza, mirándome con atención de arriba abajo, una sonrisa dejando entrever sus colmillos."
-Feliodora "Y traed un plato de comida, por la Diosa."
+Feliodora "Y traed un plato de comida, por la Diosa."Load(02)
 
-Load(Chapter01)
+

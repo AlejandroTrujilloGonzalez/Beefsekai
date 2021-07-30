@@ -144,6 +144,8 @@ public class Character
 
     public void SetPosition(Vector2 target)
     {
+        targetPosition = target;
+
         Vector2 padding = anchorPadding;
 
         float maxX = 1f - padding.x;
