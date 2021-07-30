@@ -53,7 +53,7 @@ public class Character
 
     public void FadeOut(float speed = 3, bool smooth = false)
     {
-        Sprite alphaSprite = Resources.Load<Sprite>("Images/AlphaOnly");
+        Sprite alphaSprite = Resources.Load<Sprite>("Art/CharactersImage/Vacio");
 
         lastBodySprite = renderers.bodyRender.sprite;
         lastFacialSprite = renderers.expressionRenderer.sprite;

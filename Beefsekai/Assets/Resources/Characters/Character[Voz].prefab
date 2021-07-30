@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2846940253422323268}
   - component: {fileID: 4154378318828138494}
   m_Layer: 5
-  m_Name: Character[Bartowolo]
+  m_Name: Character[Voz]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33d1b85428216474bb07b5b93914d9d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e4ea3d38564ad34a865b019bc26e881, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33d1b85428216474bb07b5b93914d9d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e4ea3d38564ad34a865b019bc26e881, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

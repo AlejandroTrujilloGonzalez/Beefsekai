@@ -114,6 +114,9 @@ public class DialogueSystem : MonoBehaviour
             retValue = (s.ToLower().Contains("narrator")) ? "" : s;
         }
 
+        if (retValue.Contains("*"))
+            retValue = retValue.Remove(0, 1);
+
         return retValue;
 
     }
