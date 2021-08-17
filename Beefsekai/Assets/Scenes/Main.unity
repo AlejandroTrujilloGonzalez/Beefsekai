@@ -1692,11 +1692,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elements:
     speechPanel: {fileID: 1602571784}
+    speakerNamePane: {fileID: 0}
     speakerNameText: {fileID: 25566605}
     speechText: {fileID: 903852023}
-  speakerNamePane: {fileID: 1097108459}
   isWaitingForUserInput: 0
   targetSpeech: 
+  SpeechPanelRequirements:
+  - {fileID: 1113860682}
+  - {fileID: 1097108459}
+  - {fileID: 304734498}
+  - {fileID: 708669402}
+  - {fileID: 603612614}
+  - {fileID: 1352672011}
+  - {fileID: 1113826754}
+  speechBox: {fileID: 1113860682}
 --- !u!4 &779062666
 Transform:
   m_ObjectHideFlags: 0

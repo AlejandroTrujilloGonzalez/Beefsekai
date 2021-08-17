@@ -11,7 +11,7 @@ public class Character
     [HideInInspector]public RectTransform root;
 
     public bool isMultiLayerCharacter { get { return renderers.renderer == null; } }
-    public bool enabled { get { return root.gameObject.activeInHierarchy; } set { root.gameObject.SetActive(value); } }
+    public bool enabled { get { return root.gameObject.activeInHierarchy; } set { root.gameObject.SetActive(value); visibleInScene = value; } }
 
     public Vector2 anchorPadding { get { return root.anchorMax - root.anchorMin; } }
 
@@ -50,6 +50,11 @@ public class Character
         root.localScale = new Vector3(-1, 1, 1);
     }
 
+    public bool isVisibleInScene
+    {
+        get { return visibleInScene; }
+    }
+    bool visibleInScene = true;
 
     public void FadeOut(float speed = 3, bool smooth = false)
     {
@@ -60,6 +65,8 @@ public class Character
 
         TransitionBody(alphaSprite, speed, smooth);
         TransitionExpression(alphaSprite, speed, smooth);
+
+        visibleInScene = false;
     }
 
     Sprite lastBodySprite, lastFacialSprite = null;
@@ -71,7 +78,10 @@ public class Character
         {
             TransitionBody(lastBodySprite, speed, smooth);
             TransitionExpression(lastFacialSprite, speed, smooth);
-        }
+
+            if(enabled)
+                visibleInScene = true;
+        }       
     }
 
     //Crear un nuevo personaje//////////////////////////////////////////////////////////////////////////////////
@@ -98,6 +108,7 @@ public class Character
 
         dialogue = DialogueSystem.instance;
         enabled = enableOnStart;
+        visibleInScene = enabled;
     }
 
 
@@ -118,6 +129,11 @@ public class Character
 
 
     //Métodos y atributos encargados del movimiento de los personajes//////////////////////////////////////////////////////////////////////////////
+    public Vector2 _targetPosition
+    {
+        get { return targetPosition; }
+    }
+
     Vector2 targetPosition;
     Coroutine moving;
     bool isMoving { get { return moving != null; } }
@@ -219,7 +235,10 @@ public class Character
 
     public void SetBody(string spriteName)
     {
-        renderers.bodyRender.sprite = GetSprite(spriteName);
+        if (spriteName == "Vacio")
+            SetBody(Resources.Load<Sprite>("Art/CharactersImage/Vacio"));
+        else
+            renderers.bodyRender.sprite = GetSprite(spriteName);
     }
 
     public void SetExpression(int index)
@@ -233,7 +252,10 @@ public class Character
 
     public void SetExpression(string spriteName)
     {
-        renderers.expressionRenderer.sprite = GetSprite(spriteName);
+        if (spriteName == "Vacio")
+            SetExpression(Resources.Load<Sprite>("Art/CharactersImage/Vacio"));
+        else
+            renderers.expressionRenderer.sprite = GetSprite(spriteName);
     }
 
     //Transition Body////////////
