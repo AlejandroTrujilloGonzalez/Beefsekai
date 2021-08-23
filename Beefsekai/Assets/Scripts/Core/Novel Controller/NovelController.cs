@@ -335,6 +335,7 @@ public class NovelController : MonoBehaviour
 	{
 		//print("execute command - " + action);
 		string[] data = action.Split('(', ')');
+		int affinityNecesary = 0;
 		switch (data[0])
 		{
 			case "enter":
@@ -412,9 +413,116 @@ public class NovelController : MonoBehaviour
 			case "Load":
 				Command_Load(data[1]);
 				break;
+
+			case "debug":
+				Command_Debug();
+				break;
+
+			case "changeFeliodoraAffinity":
+				Command_SetAffinityValuesOfFeliodora(data[1]);
+				break;
+
+			case "changeGallimAffinity":
+				Command_SetAffinityValuesOfGallim(data[1]);
+				break;
+
+			case "getAffinity":
+				Command_GetAfiinityValues(data[1]);
+				break;
+
+			case "checkAffinity":
+				Command_CheckAffinityToContinue(data[1], data[2], affinityNecesary);
+				break;
 		}
 
 	}
+
+
+	//AQUI EMPIEZAN LOS COMANDOS PARA EL INTERCAMBIO DE AFINIDADES////////////////////////////////////////////////////////////////////////////////////////
+	//int valueAffinity = 0;
+	private int feliodoraAff = 0;
+	private int gallimAff = 0;
+	void Command_SetAffinityValuesOfFeliodora(string calc)
+	{
+		if (calc == "sum")
+		{
+			feliodoraAff += 1;
+			PlayerPrefs.SetInt("Feliodora", feliodoraAff);
+		}
+		else if (calc == "rest")
+		{
+			feliodoraAff -= 1;
+			PlayerPrefs.SetInt("Feliodora", feliodoraAff);
+		}
+
+	}
+	void Command_SetAffinityValuesOfGallim(string calc)
+	{
+		if (calc == "sum")
+		{
+			gallimAff += 1;
+			PlayerPrefs.SetInt("Gallim", gallimAff);
+		}
+		else if (calc == "rest")
+		{
+			gallimAff -= 1;
+			PlayerPrefs.SetInt("Gallim", gallimAff);
+		}
+
+	}
+
+	void SetAffinityNecesaryToContinue()
+	{
+
+	}
+
+	void Command_CheckAffinityToContinue(string characName, string txtLoad, int affinityToLoad)//Nombre del personaje del que estamos comprobando, el texto que vamos a cargar, afinidad que necesita
+	{
+		Debug.Log("HEMOS ENTRADO EN EL COMMAND AFFINITY DE COSAS DE NOEKE SOCORRO");
+		switch (characName)
+		{
+			case "Feliodora":
+				if (affinityToLoad <= feliodoraAff)
+				{
+					Debug.Log("Ha entrado en la zona de feliodora");
+					NovelController.instance.LoadChapterFile(txtLoad);
+				}
+				else
+				{
+					return;
+				}
+				break;
+
+			case "Gallim":
+				if (affinityToLoad <= gallimAff)
+				{
+					Debug.Log("Ha entrado en la zona de Gallim");
+					NovelController.instance.LoadChapterFile(txtLoad);
+				}
+				else
+				{
+					return;
+				}
+				break;
+
+			default:
+				break;
+		}
+
+	}
+
+	void Command_GetAfiinityValues(string characName)
+	{
+		int affinity = PlayerPrefs.GetInt(characName);
+		Debug.Log("La afinidad de " + characName + " es " + affinity);
+	}
+
+	void Command_Debug()
+	{
+		Debug.Log("DebugTool");
+	}
+
+	//PARRIBA FUNCIONES DE PRUEBA PARA TEMA AFINIDAD DE PERSONAJES/////////////////////////////////////////////////////////////////////////////////////////////////
 
 	void Command_Load(string chapterName)
 	{

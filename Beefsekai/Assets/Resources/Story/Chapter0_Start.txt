@@ -1,13 +1,13 @@
-Voz "Bien... {wa 1}Ya está aquí."
-"Ahora sólo faltan un par de detalles."
-"Más nos vale que esto funcione."
+Voz "Bien... {wa 1}Ya está aquí."debug
+"Ahora sólo faltan un par de detalles."changeFeliodoraAffinity(sum)
+"Más nos vale que esto funcione."changeFeliodoraAffinity(sum)
 
 narrator "..."
-"..."
-"..."
+"..."changeFeliodoraAffinity(sum)
+"..."getAffinity(Feliodora)
 Yo "¿Dónde... {wa 1}estoy?"
 narrator "Abro los ojos, si es que los tenía cerrados, pero... {wa 1}no veo nada."
-Yo "¿Cómo he terminado aquí?"
+Yo "¿Cómo he terminado aquí?"checkAffinity(Feliodora,02)
 narrator "¿Qué ha pasado?"
 "No recuerdo casi nada, salvo..."
 "..."
