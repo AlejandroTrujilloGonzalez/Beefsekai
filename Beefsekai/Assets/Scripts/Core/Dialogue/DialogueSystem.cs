@@ -42,7 +42,7 @@ public class DialogueSystem : MonoBehaviour
     }
 
     public bool isSpeaking { get { return speaking != null; } }
-    [HideInInspector] public bool isWaitingForUserInput = false;
+     public bool isWaitingForUserInput = false;
 
     public string targetSpeech = "";
     Coroutine speaking = null;
@@ -163,4 +163,28 @@ public class DialogueSystem : MonoBehaviour
     /// </summary>
     public GameObject[] SpeechPanelRequirements;
     public GameObject speechBox;
+
+    ///////////////////BUTTONS TESTING///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///
+    [HideInInspector]public bool autoOn = false;
+    public void AutonOn()
+    {
+        Debug.Log("Activando auto");
+        autoOn = true;
+    }
+
+    public void AutoOff()
+    {
+        Debug.Log("Desactivando auto");
+        autoOn = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            
+        }
+    }
+
 }

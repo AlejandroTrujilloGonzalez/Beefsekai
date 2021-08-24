@@ -335,7 +335,7 @@ public class NovelController : MonoBehaviour
 	{
 		//print("execute command - " + action);
 		string[] data = action.Split('(', ')');
-		int affinityNecesary = 0;
+		//int affinityNecesary = 0;
 		switch (data[0])
 		{
 			case "enter":
@@ -418,20 +418,24 @@ public class NovelController : MonoBehaviour
 				Command_Debug();
 				break;
 
-			case "changeFeliodoraAffinity":
+			case "changeFeliodoraAffinity"://changeFeliodoraAffinity(sum)---> el string que va dentro suma o resta 1 dependiendo de lo que pongamos, "sum" para sumar "rest" para restar
 				Command_SetAffinityValuesOfFeliodora(data[1]);
 				break;
 
-			case "changeGallimAffinity":
+			case "changeGallimAffinity"://changeGallimAffinity(sum)--> En cuanto tengamos más personajes con afinidad siempre será igual, cambiando el nombre ---> changeNombreDePersonajeAffinity(Aqui dentro "sum" o "rest" para sumar o restar afinidad)
 				Command_SetAffinityValuesOfGallim(data[1]);
 				break;
 
-			case "getAffinity":
-				Command_GetAfiinityValues(data[1]);
+			case "changeAffinityOf"://Otra forma de cambiar afinidad, sería por ejemplo(dentro del txt) changeAffinityOf(Feliodora,sum)--> Esto sumaria 1 a la afinidad con Feliodira, en contra --> changeAffinityOf(NombreDePersonaje,rest), esto restaria 1
+				Command_ChangeAffinityOf(data[1]);
 				break;
 
-			case "checkAffinity":
-				Command_CheckAffinityToContinue(data[1], data[2], affinityNecesary);
+			case "getAffinity"://Solo devuelve afinidad
+				Command_GetAffinityValues(data[1]);
+				break;
+
+			case "checkAffinity"://Dentro del txt para comparar tiene que ser el siguiente orden y sin separaciones entre las comillas-- > checkAffinity(NombreDePersonaje,NombredelArchivo,AfinidadNecesariaParaContinuar(int))
+				Command_CheckAffinityNecesaryToContinue(data[1]);
 				break;
 		}
 
@@ -442,6 +446,48 @@ public class NovelController : MonoBehaviour
 	//int valueAffinity = 0;
 	private int feliodoraAff = 0;
 	private int gallimAff = 0;
+
+	void Command_ChangeAffinityOf(string data)//Con este método se pone el nombre del personaje("tiene que existir previamente") y añades sum o rest para cambiar su afinidad, creo que es más intuitivo que tener muchos métodos
+    {
+		string[] parameters = data.Split(',');
+		string chacaName = parameters[0];
+		string calc = parameters[1];
+
+        switch (chacaName)
+        {
+			case "Feliodora":
+                if (calc == "sum")
+                {
+					feliodoraAff += 1;
+					PlayerPrefs.SetInt("Feliodora", feliodoraAff);
+				}
+                else if (calc == "rest")
+                {
+					feliodoraAff -= 1;
+					PlayerPrefs.SetInt("Feliodora", feliodoraAff);
+				}
+				break;
+
+			case "Gallim":
+				if (calc == "sum")
+				{
+					gallimAff += 1;
+					PlayerPrefs.SetInt("Gallim", gallimAff);
+				}
+				else if (calc == "rest")
+				{
+					gallimAff -= 1;
+					PlayerPrefs.SetInt("Gallim", gallimAff);
+				}
+				break;
+
+
+            default:
+                break;
+        }
+
+    }
+
 	void Command_SetAffinityValuesOfFeliodora(string calc)
 	{
 		if (calc == "sum")
@@ -471,47 +517,47 @@ public class NovelController : MonoBehaviour
 
 	}
 
-	void SetAffinityNecesaryToContinue()
+	void Command_CheckAffinityNecesaryToContinue(string data)
 	{
+		string[] parameters = data.Split(',');
+		string characName = parameters[0];
+		string txtName = parameters[1];
+		int affinityNecesary = int.Parse(parameters[2]);
 
-	}
+		Debug.Log(characName);
+		Debug.Log(txtName);
+		Debug.Log(affinityNecesary);
 
-	void Command_CheckAffinityToContinue(string characName, string txtLoad, int affinityToLoad)//Nombre del personaje del que estamos comprobando, el texto que vamos a cargar, afinidad que necesita
-	{
-		Debug.Log("HEMOS ENTRADO EN EL COMMAND AFFINITY DE COSAS DE NOEKE SOCORRO");
 		switch (characName)
-		{
+        {
 			case "Feliodora":
-				if (affinityToLoad <= feliodoraAff)
-				{
-					Debug.Log("Ha entrado en la zona de feliodora");
-					NovelController.instance.LoadChapterFile(txtLoad);
-				}
-				else
-				{
+                if (affinityNecesary <= feliodoraAff)
+                {
+					Command_Load(txtName);
+                }
+                else
+                {
 					return;
-				}
+                }
 				break;
 
 			case "Gallim":
-				if (affinityToLoad <= gallimAff)
-				{
-					Debug.Log("Ha entrado en la zona de Gallim");
-					NovelController.instance.LoadChapterFile(txtLoad);
-				}
-				else
-				{
+                if (affinityNecesary <= gallimAff)
+                {
+					Command_Load(txtName);
+                }
+                else
+                {
 					return;
-				}
+                }
 				break;
 
-			default:
-				break;
-		}
+            default:
+                break;
+        }
+    }
 
-	}
-
-	void Command_GetAfiinityValues(string characName)
+	void Command_GetAffinityValues(string characName)
 	{
 		int affinity = PlayerPrefs.GetInt(characName);
 		Debug.Log("La afinidad de " + characName + " es " + affinity);

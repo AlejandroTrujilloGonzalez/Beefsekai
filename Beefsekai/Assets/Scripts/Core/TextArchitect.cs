@@ -32,7 +32,7 @@ public class TextArchitect
 		Initiate();
 	}
 
-	public void Stop()
+    public void Stop()
 	{
 		if (isConstructing)
 		{
@@ -145,5 +145,18 @@ public class TextArchitect
         //update the target of the dialogue system only if this architect is being used directly by the dialogue system
         if (tmpro == DialogueSystem.instance.speechText)
             DialogueSystem.instance.targetSpeech = text;
+    }
+
+
+	/////////////////////////////////////////Testeando cosas de botones////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///
+	public static void SetAutoButtonOn()
+    {
+		
+    }
+
+	public static void SetAutoButtonOff()
+    {
+
     }
 }
