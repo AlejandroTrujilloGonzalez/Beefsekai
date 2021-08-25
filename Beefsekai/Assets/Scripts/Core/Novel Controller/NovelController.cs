@@ -22,6 +22,10 @@ public class NovelController : MonoBehaviour
     void Start()
 	{
         LoadGamefile(0);
+   //     foreach (var stringcosas in data)
+   //     {
+			//Debug.Log(stringcosas);
+   //     }
 	}
 
     public void LoadGamefile(int gameFileNumber)
@@ -124,7 +128,31 @@ public class NovelController : MonoBehaviour
         {
             SaveGameFile();
         }
+
     }
+
+	//COSAS DE AUTO//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public bool autoOn = false;
+	public void StartAuto()
+    {
+		autoOn = true;
+		StartCoroutine(Auto());
+    }
+
+	public void AutoOff()
+    {
+		autoOn = false;
+    }
+
+	IEnumerator Auto()
+    {
+        while (autoOn == true)
+        {
+			Next();
+			yield return new WaitForSeconds(2f);
+        }
+    }
+	//COSAS DE AUTO////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void LoadChapterFile(string fileName)
 	{
