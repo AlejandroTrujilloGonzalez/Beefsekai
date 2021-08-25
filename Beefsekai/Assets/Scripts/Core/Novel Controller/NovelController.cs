@@ -26,6 +26,7 @@ public class NovelController : MonoBehaviour
    //     {
 			//Debug.Log(stringcosas);
    //     }
+
 	}
 
     public void LoadGamefile(int gameFileNumber)
@@ -128,6 +129,17 @@ public class NovelController : MonoBehaviour
         {
             SaveGameFile();
         }
+
+
+        if (chapterProgress >= 2)
+        {
+			if (Input.GetKeyDown(KeyCode.LeftArrow) && chapterProgress >= 2)
+			{
+				chapterProgress -= 2;
+				Next();
+			}
+		}
+
 
     }
 
@@ -251,7 +263,7 @@ public class NovelController : MonoBehaviour
 		//display choices
 		if (choices.Count > 0)
 		{
-			ChoiceScreen.Show(title, choices.ToArray()); yield return new WaitForEndOfFrame();
+			ChoiceScreen.Show(title, choices.ToArray()); yield return new WaitForEndOfFrame(); 
 			while (ChoiceScreen.isWaitingForChoiceToBeMade)
 				yield return new WaitForEndOfFrame();
 
