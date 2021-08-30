@@ -6,6 +6,8 @@ public class NovelController : MonoBehaviour
 {
 	public static NovelController instance;
 
+	public GameSavePanel saveLoadPanel;
+
 	/// <summary> The lines of data loaded directly from a chapter file.	/// </summary>
 	List<string> data = new List<string>();
 
@@ -14,14 +16,28 @@ public class NovelController : MonoBehaviour
 		instance = this;
 	}
 
-    int activeGameFileNumber = 0;
-    GAMEFILE activeGameFile = null;
+    public string activeGameFileName = "";
+
+    GAMEFILE activeGameFile
+    {
+        get
+        {
+			return GAMEFILE.activeFile;
+        }
+        set
+        {
+			GAMEFILE.activeFile = value;
+        }
+    }
+
     string activeChapterFile = "";
 
     // Use this for initialization
     void Start()
 	{
-        LoadGamefile(0);
+		saveLoadPanel.gameObject.SetActive(false);
+        LoadGamefile(FileManager.LoadFile(FileManager.savPath + "savData/file.txt")[0]);
+
    //     foreach (var stringcosas in data)
    //     {
 			//Debug.Log(stringcosas);
@@ -29,23 +45,35 @@ public class NovelController : MonoBehaviour
 
 	}
 
-    public void LoadGamefile(int gameFileNumber)
-    {
-        int activeGameFileNumber = gameFileNumber;
+	bool encryptGameFile = true;
 
-        string filePath = FileManager.savPath + "Resources/GameFiles/" + gameFileNumber.ToString();
+    public void LoadGamefile(string gameFileName)
+    {
+		activeGameFileName = gameFileName;
+
+        string filePath = FileManager.savPath + "savData/GameFiles/" + activeGameFileName + ".txt";
 
         //En caso de no encontrar gameFiles, carga uno en blanco
         if (!System.IO.File.Exists(filePath))
         {
-            FileManager.SaveJSON(filePath, new GAMEFILE());
+			activeGameFile = new GAMEFILE();
         }
+        else
+        {
+			if (encryptGameFile)
+				activeGameFile = FileManager.LoadEncryptedJSON<GAMEFILE>(filePath, keys);
+			else
+				activeGameFile = FileManager.LoadJSON<GAMEFILE>(filePath);
+		}
 
-        activeGameFile = FileManager.LoadJSON<GAMEFILE>(filePath);
+		//activeGameFile = FileManager.LoadJSON<GAMEFILE>(filePath);
+		//activeGameFile = FileManager.LoadEncryptedJSON<GAMEFILE>(filePath, keys);
 
-        //Carga el fichero
-        data = FileManager.LoadFile(FileManager.savPath + "Resources/Story/" + activeGameFile.chapterName);
-        activeChapterFile = activeGameFile.chapterName;
+		//Carga el fichero
+		TextAsset chapterAsset = Resources.Load<TextAsset>("Story/" + activeGameFile.chapterName);
+		//data = FileManager.LoadFile(FileManager.savPath + "Resources/Story/" + activeGameFile.chapterName);//OJO ESTO FUNCIONABA
+		data = FileManager.ReadTextAsset(chapterAsset);
+		activeChapterFile = activeGameFile.chapterName;
         cachedLastSpeaker = activeGameFile.cachedLastSpeaker;      
 
         DialogueSystem.instance.Open(activeGameFile.currentTextSystemSpeakerDisplayText, activeGameFile.currentTestSystemDisplayText);
@@ -55,6 +83,8 @@ public class NovelController : MonoBehaviour
         {
             GAMEFILE.CHARACTERDATA data = activeGameFile.charactersInScene[i];
             Character character = CharacterManager.instance.CreateCharacter(data.characterName, data.enabled);
+			//character.displayName = data.displayName;
+			//character.canvasGroup.alpha = 1;//	COSAS QUE EL TIENE POR LA CARA Y NO ENSEÑA EN LOS VIDEOS
             character.SetBody(data.bodyExpression);
             character.SetExpression(data.facialExpression);
             if (data.facingLeft)
@@ -69,12 +99,15 @@ public class NovelController : MonoBehaviour
             BCFC.instance.background.SetTexture(activeGameFile.background);
         //if (activeGameFile.cinematic != null)
           //  BCFC.instance.background.SetTexture(activeGameFile.cinematic);
-        if (activeGameFile.foreground != null)
-            BCFC.instance.background.SetTexture(activeGameFile.foreground);
+        //if (activeGameFile.foreground != null)
+        //    BCFC.instance.background.SetTexture(activeGameFile.foreground);//////////creo que intenta cargar esto y petardea a veces
 
         //Carga la musica
        // if (activeGameFile.music != null)
        //     AudioManager.instance.PlaySong(activeGameFile.music);
+
+		        //load the temporary variables back
+        //CACHE.tempVals = activeGameFile.tempVals;///////////////Mas cosas que tiene por la cara
              
         if (handlingChapterFile != null)
             StopCoroutine(handlingChapterFile);
@@ -85,7 +118,7 @@ public class NovelController : MonoBehaviour
 
     public void SaveGameFile()
     {
-        string filePath = FileManager.savPath + "Resources/GameFiles/" + activeGameFileNumber.ToString();
+        string filePath = FileManager.savPath + "savData/GameFiles/" + activeGameFileName + ".txt";//sin el txt funcionaba TT
 
         activeGameFile.chapterName = activeChapterFile;
         activeGameFile.chapterProgress = chapterProgress;
@@ -107,18 +140,44 @@ public class NovelController : MonoBehaviour
         BCFC b = BCFC.instance;
         activeGameFile.background = b.background.activeImage != null ? b.background.activeImage.texture : null;
         //activeGameFile.cinematic = b.cinematic.activeImage != null ? b.cinematic.activeImage.texture : null;
-        activeGameFile.foreground = b.foreground.activeImage != null ? b.foreground.activeImage.texture : null;
+        //activeGameFile.foreground = b.foreground.activeImage != null ? b.foreground.activeImage.texture : null;//PUEDE QUE ESTO PETARDEE
 
-        //guarda la musica
-        //activeGameFile.music = AudioManager.activeSong != null ? AudioManager.activeSong.clip : null;
+		//guarda la musica
+		//activeGameFile.music = AudioManager.activeSong != null ? AudioManager.activeSong.clip : null;
 
-        FileManager.SaveJSON(filePath, activeGameFile);
+		//Guardado de una imagen para el tema de guardar y cargar partida
+		//string screenShotDirectory = "Assets/Resources/savData/previewImages/";
+		string screenShotPath = FileManager.savPath + "savData/GameFiles/" + activeGameFileName + ".png";
+		if (FileManager.TryCreateDirectoryFromPath(screenShotPath + ".png"))
+        {
+			GAMEFILE.activeFile.previewImagePath = ScreenCapture.CaptureScreenshotAsTexture();
+			byte[] textureData = activeGameFile.previewImagePath.EncodeToPNG();
+			FileManager.SaveComposingBytes(screenShotPath, textureData);
+			//ScreenCapture.CaptureScreenshot(screenShotPath + ".png");
+			//activeGameFile.previewImagePath = Resources.Load<Texture2D>("savData/previewImages/" + activeGameFileName + ".png");
+        }
+
+		//Guardado datos/fecha
+		activeGameFile.modificationDate = System.DateTime.Now.ToString();
+
+		//FileManager.SaveJSON(filePath, activeGameFile);
+		//FileManager.SaveEncryptedJSON(filePath, activeGameFile, keys);//Faltan cosas a diferencia con el video
+		if (encryptGameFile)
+			FileManager.SaveEncryptedJSON(filePath, activeGameFile, keys);
+		else
+			FileManager.SaveJSON(filePath, activeGameFile);
+	}
+	//Temporary
+	//byte[] keys = new byte[3] { 23, 70, 194 };
+	byte[] keys
+    {
+        get { return FileManager.keys; }
     }
 
 	// Update is called once per frame
 	void Update()
 	{
-		//testing
+		//Next
 		if (Input.GetKeyDown(KeyCode.RightArrow))
 		{
 			Next();
@@ -130,7 +189,7 @@ public class NovelController : MonoBehaviour
             SaveGameFile();
         }
 
-
+		//Back chustero
         if (chapterProgress >= 2)
         {
 			if (Input.GetKeyDown(KeyCode.LeftArrow) && chapterProgress >= 2)
@@ -139,6 +198,25 @@ public class NovelController : MonoBehaviour
 				Next();
 			}
 		}
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if (ChoiceScreen.isWaitingForChoiceToBeMade)
+            {
+				return;
+            }
+            if (!saveLoadPanel.gameObject.activeInHierarchy)
+            {
+				saveLoadPanel.gameObject.SetActive(true);
+				//animacion
+				saveLoadPanel.LoadFilesOntoScreen(saveLoadPanel.currentSaveLoadPage);
+			}
+			else
+            {
+				//fadeoff
+            }
+
+        }
 
 
     }
@@ -170,7 +248,8 @@ public class NovelController : MonoBehaviour
 	{
         activeChapterFile = fileName;
 
-		data = FileManager.LoadFile(FileManager.savPath + "Resources/Story/" + fileName);
+		//data = FileManager.LoadFile(FileManager.savPath + "Resources/Story/" + fileName);
+		data = FileManager.ReadTextAsset(Resources.Load<TextAsset>($"Story/{fileName}"));
 		cachedLastSpeaker = "";
 
 		if (handlingChapterFile != null)
@@ -508,16 +587,16 @@ public class NovelController : MonoBehaviour
 				}
 				break;
 
-			case "Gallim":
+			case "Gallahim":
 				if (calc == "sum")
 				{
 					gallimAff += 1;
-					PlayerPrefs.SetInt("Gallim", gallimAff);
+					PlayerPrefs.SetInt("Gallahim", gallimAff);
 				}
 				else if (calc == "rest")
 				{
 					gallimAff -= 1;
-					PlayerPrefs.SetInt("Gallim", gallimAff);
+					PlayerPrefs.SetInt("Gallahim", gallimAff);
 				}
 				break;
 
@@ -547,12 +626,12 @@ public class NovelController : MonoBehaviour
 		if (calc == "sum")
 		{
 			gallimAff += 1;
-			PlayerPrefs.SetInt("Gallim", gallimAff);
+			PlayerPrefs.SetInt("Gallahim", gallimAff);
 		}
 		else if (calc == "rest")
 		{
 			gallimAff -= 1;
-			PlayerPrefs.SetInt("Gallim", gallimAff);
+			PlayerPrefs.SetInt("Gallahim", gallimAff);
 		}
 
 	}
@@ -581,7 +660,7 @@ public class NovelController : MonoBehaviour
                 }
 				break;
 
-			case "Gallim":
+			case "Gallahim":
                 if (affinityNecesary <= gallimAff)
                 {
 					Command_Load(txtName);

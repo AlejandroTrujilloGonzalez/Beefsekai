@@ -6,8 +6,12 @@ using UnityEngine;
 public class GAMEFILE
 {
 
+    public static GAMEFILE activeFile = new GAMEFILE();
+
     public string chapterName;
     public int chapterProgress = 0;
+
+    public string playerName = "";
 
     public string cachedLastSpeaker = "";
 
@@ -22,11 +26,17 @@ public class GAMEFILE
 
     public AudioClip music = null;
 
-    public GAMEFILE()
+    public string modificationDate = "";
+    public Texture2D previewImagePath = null;
+
+    public GAMEFILE()//Faltan cosas a diferencia con el video
     {
         this.chapterName = "Chapter0_Start";
         this.chapterProgress = 0;
         this.cachedLastSpeaker = "";
+
+        this.background = null;//OJO
+        this.foreground = null;
 
         charactersInScene = new List<CHARACTERDATA>();
     }

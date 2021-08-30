@@ -10,6 +10,8 @@ public class Character
     public string characterName;
     [HideInInspector]public RectTransform root;
 
+    public string displayName = "";
+
     public bool isMultiLayerCharacter { get { return renderers.renderer == null; } }
     public bool enabled { get { return root.gameObject.activeInHierarchy; } set { root.gameObject.SetActive(value); visibleInScene = value; } }
 
@@ -25,7 +27,8 @@ public class Character
             enabled = true;
         }
 
-            dialogue.Say(speech, characterName, add);
+
+        dialogue.Say(speech, characterName, add);
 
 
     }
