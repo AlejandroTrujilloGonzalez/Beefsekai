@@ -40,15 +40,30 @@ public class GameSavePanel : MonoBehaviour
                 string expectedFile = directory + (i + 1).ToString() + ".txt";
                 if (System.IO.File.Exists(expectedFile))
                 {
-                    GAMEFILE file = FileManager.LoadEncryptedJSON<GAMEFILE>(expectedFile, FileManager.keys);
+                    if (NovelController.instance.encryptGameFile)
+                    {
+                        GAMEFILE file = FileManager.LoadEncryptedJSON<GAMEFILE>(expectedFile, FileManager.keys);
+                        b.button.interactable = true;
+                        byte[] previewImageData = FileManager.LoadComposingBytes(directory + (i + 1).ToString() + ".png");
+                        Texture2D previewImage = new Texture2D(2, 2);
+                        ImageConversion.LoadImage(previewImage, previewImageData);
+                        file.previewImagePath = previewImage;
+                        b.previewDisplay.texture = file.previewImagePath;
+                        b.dateTimeText.text = page.ToString() + file.modificationDate;
+                    }
+                    else
+                    {
+                        GAMEFILE file = FileManager.LoadJSON<GAMEFILE>(expectedFile);
+                        b.button.interactable = true;
+                        byte[] previewImageData = FileManager.LoadComposingBytes(directory + (i + 1).ToString() + ".png");
+                        Texture2D previewImage = new Texture2D(2, 2);
+                        ImageConversion.LoadImage(previewImage, previewImageData);
+                        file.previewImagePath = previewImage;
+                        b.previewDisplay.texture = file.previewImagePath;
+                        b.dateTimeText.text = page.ToString() + file.modificationDate;
+                    }
 
-                    b.button.interactable = true;
-                    byte[] previewImageData = FileManager.LoadComposingBytes(directory + (i + 1).ToString() + ".png");
-                    Texture2D previewImage = new Texture2D(2, 2);
-                    ImageConversion.LoadImage(previewImage, previewImageData);
-                    file.previewImagePath = previewImage;
-                    b.previewDisplay.texture = file.previewImagePath;
-                    b.dateTimeText.text = page.ToString() + file.modificationDate;
+
                 }
                 else
                 {
@@ -108,7 +123,14 @@ public class GameSavePanel : MonoBehaviour
 
     public void LoadFromSelectedSlot()
     {
-        GAMEFILE file = FileManager.LoadEncryptedJSON<GAMEFILE>(selectedFilePath, FileManager.keys);
+        if (NovelController.instance.encryptGameFile)
+        {
+            GAMEFILE file = FileManager.LoadEncryptedJSON<GAMEFILE>(selectedFilePath, FileManager.keys);
+        }
+        else
+        {
+            GAMEFILE file = FileManager.LoadJSON<GAMEFILE>(selectedFilePath);
+        }
 
         FileManager.SaveFile(FileManager.savPath + "savData/file", selectedGameFile);
 

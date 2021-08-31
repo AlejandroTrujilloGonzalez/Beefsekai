@@ -45,7 +45,7 @@ public class NovelController : MonoBehaviour
 
 	}
 
-	bool encryptGameFile = true;
+	public bool encryptGameFile = false;
 
     public void LoadGamefile(string gameFileName)
     {
@@ -134,7 +134,7 @@ public class NovelController : MonoBehaviour
         {
             Character character = CharacterManager.instance.characters[i];
             GAMEFILE.CHARACTERDATA data = new GAMEFILE.CHARACTERDATA(character);
-			Debug.Log(character);
+			Debug.Log(character.renderers.bodyRender.name);
             activeGameFile.charactersInScene.Add(data);
         }
 
