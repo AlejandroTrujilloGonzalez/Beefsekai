@@ -25,7 +25,9 @@ public class CharacterManager : MonoBehaviour
         }
         else if (createCharacterIfDoesNotExist)
         {
-            return CreateCharacter(characterName, enableCreatedCharacterOnStart);
+            if (Resources.Load("Characters/Character[" + characterName + "]") != null)
+                return CreateCharacter(characterName, enableCreatedCharacterOnStart);
+            return null;
         }
 
         return null;

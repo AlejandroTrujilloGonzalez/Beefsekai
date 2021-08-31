@@ -50,22 +50,22 @@ public class GAMEFILE
     public class CHARACTERDATA
     {
         public string characterName = "";
+        public string displayName = "";
         public bool enabled = true;
         public string facialExpression = "";
         public string bodyExpression = "";
         public bool facingLeft = true;
         public Vector2 position = Vector2.zero;
 
-        public CHARACTERDATA (Character character)
+        public CHARACTERDATA(Character character)
         {
             this.characterName = character.characterName;
+            this.displayName = character.displayName;
             this.enabled = character.enabled;
-            //No se si se va a continuar con el tema de la expresiones, lo dejo por si acaso
             this.facialExpression = character.renderers.expressionRenderer.sprite.name;
             this.bodyExpression = character.renderers.bodyRender.sprite.name;
             this.facingLeft = character.isFacingLeft;
             this.position = character._targetPosition;
         }
-
     }
 }

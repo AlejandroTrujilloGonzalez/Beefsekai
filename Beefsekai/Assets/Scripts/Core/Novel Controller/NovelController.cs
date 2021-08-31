@@ -134,6 +134,7 @@ public class NovelController : MonoBehaviour
         {
             Character character = CharacterManager.instance.characters[i];
             GAMEFILE.CHARACTERDATA data = new GAMEFILE.CHARACTERDATA(character);
+			Debug.Log(character);
             activeGameFile.charactersInScene.Add(data);
         }
 

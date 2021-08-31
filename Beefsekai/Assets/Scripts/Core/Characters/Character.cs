@@ -12,7 +12,7 @@ public class Character
 
     public string displayName = "";
 
-    public bool isMultiLayerCharacter { get { return renderers.renderer == null; } }
+    //public bool isMultiLayerCharacter { get { return renderers.renderer == null; } }
     public bool enabled { get { return root.gameObject.activeInHierarchy; } set { root.gameObject.SetActive(value); visibleInScene = value; } }
 
     public Vector2 anchorPadding { get { return root.anchorMax - root.anchorMin; } }
@@ -98,27 +98,26 @@ public class Character
         root = go.GetComponent<RectTransform>();
         characterName = _name;
 
-        renderers.renderer = go.GetComponentInChildren<RawImage>();
+        //renderers.renderer = go.GetComponentInChildren<RawImage>();
 
-        if (isMultiLayerCharacter)
-        {
-            renderers.bodyRender = go.transform.Find("BodyLayer").GetComponentInChildren<Image>();
-            renderers.expressionRenderer = go.transform.Find("ExpressionLayer").GetComponentInChildren<Image>();
-            renderers.allBodyRenderers.Add(renderers.bodyRender);
-            renderers.allExpressionRenderers.Add(renderers.expressionRenderer);
-        }
+
+        renderers.bodyRender = go.transform.Find("BodyLayer").GetComponentInChildren<Image>();
+        renderers.expressionRenderer = go.transform.Find("ExpressionLayer").GetComponentInChildren<Image>();
+        renderers.allBodyRenderers.Add(renderers.bodyRender);
+        renderers.allExpressionRenderers.Add(renderers.expressionRenderer);
+
 
 
         dialogue = DialogueSystem.instance;
         enabled = enableOnStart;
-        visibleInScene = enabled;
+        //visibleInScene = enabled;
     }
 
 
     [System.Serializable]
     public class Renderers
     {
-        public RawImage renderer;
+        //public RawImage renderer;
 
         public Image bodyRender;
         public Image expressionRenderer;
