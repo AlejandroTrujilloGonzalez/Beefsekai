@@ -45,7 +45,7 @@ public class NovelController : MonoBehaviour
 
 	}
 
-	public bool encryptGameFile = false;
+	//public bool encryptGameFile = false;
 
     public void LoadGamefile(string gameFileName)
     {
@@ -60,7 +60,7 @@ public class NovelController : MonoBehaviour
         }
         else
         {
-			if (encryptGameFile)
+			if (Encrpyterizador.instance.encryptedOn)
 				activeGameFile = FileManager.LoadEncryptedJSON<GAMEFILE>(filePath, keys);
 			else
 				activeGameFile = FileManager.LoadJSON<GAMEFILE>(filePath);
@@ -164,7 +164,7 @@ public class NovelController : MonoBehaviour
 
 		//FileManager.SaveJSON(filePath, activeGameFile);
 		//FileManager.SaveEncryptedJSON(filePath, activeGameFile, keys);//Faltan cosas a diferencia con el video
-		if (encryptGameFile)
+		if (Encrpyterizador.instance.encryptedOn)
 			FileManager.SaveEncryptedJSON(filePath, activeGameFile, keys);
 		else
 			FileManager.SaveJSON(filePath, activeGameFile);

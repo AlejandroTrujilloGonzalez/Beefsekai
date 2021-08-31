@@ -40,7 +40,7 @@ public class GameSavePanel : MonoBehaviour
                 string expectedFile = directory + (i + 1).ToString() + ".txt";
                 if (System.IO.File.Exists(expectedFile))
                 {
-                    if (NovelController.instance.encryptGameFile)
+                    if (Encrpyterizador.instance.encryptedOn)
                     {
                         GAMEFILE file = FileManager.LoadEncryptedJSON<GAMEFILE>(expectedFile, FileManager.keys);
                         b.button.interactable = true;
@@ -123,7 +123,7 @@ public class GameSavePanel : MonoBehaviour
 
     public void LoadFromSelectedSlot()
     {
-        if (NovelController.instance.encryptGameFile)
+        if (Encrpyterizador.instance.encryptedOn)
         {
             GAMEFILE file = FileManager.LoadEncryptedJSON<GAMEFILE>(selectedFilePath, FileManager.keys);
         }

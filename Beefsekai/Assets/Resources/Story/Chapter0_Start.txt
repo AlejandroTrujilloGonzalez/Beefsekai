@@ -122,7 +122,7 @@ narrator "Los matones asienten al unísono y salen pitando."exit(Tigre;Macarra)
 Yo "Gracias. Creo que me acaba usted de salvar el pellejo." 
 Desconocida "De nada. Mi nombre es Feliodora Tuercacero, ingeniera mecánica y regente de este puesto."
 Yo "Encantado. Mi nombre es..."
-Feliodora "Un placer. Y dime, ¿de qué especie eres? Nunca he visto a nadie como tú por aquí."
+Feliodora "Un placer. Y dime, ¿de qué especie eres? Nunca he visto a nadie como tú por aquí."exit(Desconocida)
 Yo "Hasta donde yo sé, soy humano."
 narrator "Feliodora se ríe."
 Feliodora "Ya, claro. ¿Y qué te han hecho para acabar así? ¿Una maldición?"
