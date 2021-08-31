@@ -48,15 +48,8 @@ public class FileManager : MonoBehaviour
 	/// <param name="filePath">File path.</param>
 	public static string GetDirectoryFromPath(string filePath)
 	{
-		string directoryPath = "";
-		string[] parts = filePath.Split('/');
-		foreach(string part in parts)
-		{
-			if (!part.Contains("."))
-				directoryPath += part + "/";
-		}
-		return directoryPath;
-	}
+        return Path.GetDirectoryName(filePath);
+    }
 
 	/// <summary>
 	/// Will return true if the directory already exists or was created. Returns false if the directory could not be made.
@@ -74,7 +67,7 @@ public class FileManager : MonoBehaviour
 			if (Directory.Exists(directoryPath)) return true;
 		}
 
-		if (directoryPath != "" && !directoryPath.Contains("."))
+		if (directoryPath != "")
 		{
 			print (directoryPath);
 			try
@@ -105,7 +98,7 @@ public class FileManager : MonoBehaviour
 		//make sure we add the default save path if desired.
 		filePath = filePath.Replace("[]", dataPath);
 		//add the default extension if no extension is present.
-		if (!filePath.Contains(".")) filePath += fileExtension;
+		if (Path.GetExtension(filePath) == "") filePath += fileExtension;
 
 		return filePath;
 	}
