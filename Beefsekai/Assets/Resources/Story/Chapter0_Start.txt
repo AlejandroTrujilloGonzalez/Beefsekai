@@ -17,7 +17,7 @@ narrator "¿Qué ha pasado?"
 "Luego, todo se volvió negro, y no veo nada. ¿No debería haber alguien?"
 
 "..." setBackground(Alcantarilla)
-"A medida que pienso, siento la respiración de alguien cerca de mí."enter(Madrina)
+"A medida que pienso, siento la respiración de alguien cerca de mí."enter(Madrina) setPosition(Madrina,1,0)
 Voz femenina "Vaya, qué desgracia más grande. ¡Con el buen día que estábamos teniendo!"
 narrator "Tenía delante de mí... ¿Un corgi?"
 "No, espera, lo más importante, ¿cómo dem...?"
