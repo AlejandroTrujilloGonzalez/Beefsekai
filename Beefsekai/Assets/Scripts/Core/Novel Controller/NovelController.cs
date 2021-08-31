@@ -98,17 +98,18 @@ public class NovelController : MonoBehaviour
         if (activeGameFile.background != null)
             BCFC.instance.background.SetTexture(activeGameFile.background);
         //if (activeGameFile.cinematic != null)
-          //  BCFC.instance.background.SetTexture(activeGameFile.cinematic);
-        //if (activeGameFile.foreground != null)
-        //    BCFC.instance.background.SetTexture(activeGameFile.foreground);//////////creo que intenta cargar esto y petardea a veces
+        //  BCFC.instance.background.SetTexture(activeGameFile.cinematic);
+        if (activeGameFile.foreground != null)
+            BCFC.instance.background.SetTexture(activeGameFile.foreground);//////////creo que intenta cargar esto y petardea a veces
 
-        //Carga la musica
-       // if (activeGameFile.music != null)
-       //     AudioManager.instance.PlaySong(activeGameFile.music);
+		//Carga la musica
+		// if (activeGameFile.music != null)
+		//     AudioManager.instance.PlaySong(activeGameFile.music);
 
-		        //load the temporary variables back
-        //CACHE.tempVals = activeGameFile.tempVals;///////////////Mas cosas que tiene por la cara
-             
+		//load the temporary variables back
+		//CACHE.tempVals = activeGameFile.tempVals;///////////////Mas cosas que tiene por la cara
+		CACHE.tempVals = activeGameFile.tempVals;
+
         if (handlingChapterFile != null)
             StopCoroutine(handlingChapterFile);
         handlingChapterFile = StartCoroutine(HandlingChapterFile());
@@ -140,7 +141,7 @@ public class NovelController : MonoBehaviour
         BCFC b = BCFC.instance;
         activeGameFile.background = b.background.activeImage != null ? b.background.activeImage.texture : null;
         //activeGameFile.cinematic = b.cinematic.activeImage != null ? b.cinematic.activeImage.texture : null;
-        //activeGameFile.foreground = b.foreground.activeImage != null ? b.foreground.activeImage.texture : null;//PUEDE QUE ESTO PETARDEE
+        activeGameFile.foreground = b.foreground.activeImage != null ? b.foreground.activeImage.texture : null;//PUEDE QUE ESTO PETARDEE
 
 		//guarda la musica
 		//activeGameFile.music = AudioManager.activeSong != null ? AudioManager.activeSong.clip : null;

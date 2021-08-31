@@ -29,6 +29,8 @@ public class GAMEFILE
     public string modificationDate = "";
     public Texture2D previewImagePath = null;
 
+    public string[] tempVals = new string[9];
+
     public GAMEFILE()//Faltan cosas a diferencia con el video
     {
         this.chapterName = "Chapter0_Start";
@@ -39,6 +41,8 @@ public class GAMEFILE
         this.foreground = null;
 
         charactersInScene = new List<CHARACTERDATA>();
+
+        tempVals = new string[9];
     }
 
     //Datos de los personajes. Entiendo que aqui deberiamos meter tambien el nivel de afinidad
