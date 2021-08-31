@@ -59,7 +59,7 @@ public class GAMEFILE
         public CHARACTERDATA (Character character)
         {
             this.characterName = character.characterName;
-            this.enabled = character.isVisibleInScene;
+            this.enabled = character.enabled;
             //No se si se va a continuar con el tema de la expresiones, lo dejo por si acaso
             this.facialExpression = character.renderers.expressionRenderer.sprite.name;
             this.bodyExpression = character.renderers.bodyRender.sprite.name;

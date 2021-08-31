@@ -30,7 +30,7 @@ public class GameSavePanel : MonoBehaviour
     {
         currentSaveLoadPage = page;
 
-        string directory = FileManager.savPath + "savData/GameFiles/" + page.ToString();
+        string directory = FileManager.savPath + "savData/GameFiles/" + page.ToString() + "/";
 
         if (System.IO.Directory.Exists(directory))
         {
@@ -48,13 +48,13 @@ public class GameSavePanel : MonoBehaviour
                     ImageConversion.LoadImage(previewImage, previewImageData);
                     file.previewImagePath = previewImage;
                     b.previewDisplay.texture = file.previewImagePath;
-                    b.dateTimeText.text = file.modificationDate;
+                    b.dateTimeText.text = page.ToString() + file.modificationDate;
                 }
                 else
                 {
                     b.button.interactable = allowSavingFromThisScreen;
                     b.previewDisplay.texture = Resources.Load<Texture2D>("Art/Images/UI/EmptyGameFile");
-                    b.dateTimeText.text = "empty file...";
+                    b.dateTimeText.text = page.ToString() + "\n" + "empty file...";
                 }
             }
         }
@@ -65,7 +65,7 @@ public class GameSavePanel : MonoBehaviour
                 BUTTON b = buttons[i];
                 b.button.interactable = allowSavingFromThisScreen;
                 b.previewDisplay.texture = Resources.Load<Texture2D>("Art/Images/UI/EmptyGameFile");
-                b.dateTimeText.text = "empty file...";
+                b.dateTimeText.text = page.ToString() + "\n" + "empty file...";
             }
         }
     }
@@ -134,14 +134,14 @@ public class GameSavePanel : MonoBehaviour
     IEnumerator SavingFile()
     {
         NovelController.instance.activeGameFileName = selectedGameFile;
-        gameObject.SetActive(false);
+        canvasGroup.alpha = 0;
         yield return new WaitForEndOfFrame();
         NovelController.instance.SaveGameFile();
 
         selectedButton.dateTimeText.text = currentSaveLoadPage.ToString() + "\n" + GAMEFILE.activeFile.modificationDate;
         selectedButton.previewDisplay.texture = GAMEFILE.activeFile.previewImagePath;
         yield return new WaitForEndOfFrame();
-        gameObject.SetActive(true);
+        canvasGroup.alpha = 1;
 
         savingFile = null;
     }
