@@ -754,8 +754,8 @@ public class NovelController : MonoBehaviour
 		string[] parameters = data.Split(',');
 		string character = parameters[0];
 		float locationX = float.Parse(parameters[1]);
-		float locationY = parameters.Length >= 3 ? float.Parse(parameters[2]) : 0;
-		float speed = parameters.Length >= 4 ? float.Parse(parameters[3]) : 7f;
+		float locationY = parameters.Length >= 3 ? float.Parse(parameters[2], System.Globalization.NumberStyles.Float, new System.Globalization.CultureInfo("en-US")) : 0;
+		float speed = parameters.Length >= 4 ? float.Parse(parameters[3], System.Globalization.NumberStyles.Float, new System.Globalization.CultureInfo("en-US")) : 7f;
 		bool smooth = parameters.Length == 5 ? bool.Parse(parameters[4]) : true;
 
 		Character c = CharacterManager.instance.GetCharacters(character);
@@ -766,8 +766,8 @@ public class NovelController : MonoBehaviour
 	{
 		string[] parameters = data.Split(',');
 		string character = parameters[0];
-		float locationX = float.Parse(parameters[1]);
-		float locationY = parameters.Length == 3 ? float.Parse(parameters[2]) : 0;
+		float locationX = float.Parse(parameters[1], System.Globalization.NumberStyles.Float, new System.Globalization.CultureInfo("en-US"));
+		float locationY = parameters.Length == 3 ? float.Parse(parameters[2], System.Globalization.NumberStyles.Float, new System.Globalization.CultureInfo("en-US")) : 0;
 
 		Character c = CharacterManager.instance.GetCharacters(character);
 		c.SetPosition(new Vector2(locationX, locationY));
