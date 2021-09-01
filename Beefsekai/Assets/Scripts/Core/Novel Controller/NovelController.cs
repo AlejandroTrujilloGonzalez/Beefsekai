@@ -565,8 +565,8 @@ public class NovelController : MonoBehaviour
 
 	//AQUI EMPIEZAN LOS COMANDOS PARA EL INTERCAMBIO DE AFINIDADES////////////////////////////////////////////////////////////////////////////////////////
 	//int valueAffinity = 0;
-	private int feliodoraAff = 0;
-	private int gallimAff = 0;
+	//private int feliodoraAff = 0;
+	//private int gallimAff = 0;
 
 	void Command_ChangeAffinityOf(string data)//Con este método se pone el nombre del personaje("tiene que existir previamente") y añades sum o rest para cambiar su afinidad, creo que es más intuitivo que tener muchos métodos
     {
@@ -579,26 +579,24 @@ public class NovelController : MonoBehaviour
 			case "Feliodora":
                 if (calc == "sum")
                 {
-					feliodoraAff += 1;
-					PlayerPrefs.SetInt("Feliodora", feliodoraAff);
+					GAMEFILE.activeFile.affFeliodora += 1;
 				}
                 else if (calc == "rest")
                 {
-					feliodoraAff -= 1;
-					PlayerPrefs.SetInt("Feliodora", feliodoraAff);
+					GAMEFILE.activeFile.affFeliodora -= 1;
+					//feliodoraAff -= 1;
+					//PlayerPrefs.SetInt("Feliodora", feliodoraAff);
 				}
 				break;
 
 			case "Gallahim":
 				if (calc == "sum")
 				{
-					gallimAff += 1;
-					PlayerPrefs.SetInt("Gallahim", gallimAff);
+					GAMEFILE.activeFile.affGallahim += 1;
 				}
 				else if (calc == "rest")
 				{
-					gallimAff -= 1;
-					PlayerPrefs.SetInt("Gallahim", gallimAff);
+					GAMEFILE.activeFile.affGallahim -= 1;
 				}
 				break;
 
@@ -613,13 +611,11 @@ public class NovelController : MonoBehaviour
 	{
 		if (calc == "sum")
 		{
-			feliodoraAff += 1;
-			PlayerPrefs.SetInt("Feliodora", feliodoraAff);
+			GAMEFILE.activeFile.affFeliodora += 1;
 		}
 		else if (calc == "rest")
 		{
-			feliodoraAff -= 1;
-			PlayerPrefs.SetInt("Feliodora", feliodoraAff);
+			GAMEFILE.activeFile.affFeliodora -= 1;
 		}
 
 	}
@@ -627,13 +623,11 @@ public class NovelController : MonoBehaviour
 	{
 		if (calc == "sum")
 		{
-			gallimAff += 1;
-			PlayerPrefs.SetInt("Gallahim", gallimAff);
+			GAMEFILE.activeFile.affGallahim += 1;
 		}
 		else if (calc == "rest")
 		{
-			gallimAff -= 1;
-			PlayerPrefs.SetInt("Gallahim", gallimAff);
+			GAMEFILE.activeFile.affGallahim -= 1;
 		}
 
 	}
@@ -652,7 +646,7 @@ public class NovelController : MonoBehaviour
 		switch (characName)
         {
 			case "Feliodora":
-                if (affinityNecesary <= feliodoraAff)
+                if (affinityNecesary <= GAMEFILE.activeFile.affFeliodora)
                 {
 					Command_Load(txtName);
                 }
@@ -663,7 +657,7 @@ public class NovelController : MonoBehaviour
 				break;
 
 			case "Gallahim":
-                if (affinityNecesary <= gallimAff)
+                if (affinityNecesary <= GAMEFILE.activeFile.affGallahim)
                 {
 					Command_Load(txtName);
                 }
@@ -674,15 +668,26 @@ public class NovelController : MonoBehaviour
 				break;
 
             default:
+				Debug.Log("No tienes la afinidad suficiente con" + characName + " Necesitas: " + affinityNecesary);
                 break;
         }
     }
 
 	void Command_GetAffinityValues(string characName)
 	{
-		int affinity = PlayerPrefs.GetInt(characName);
-		Debug.Log("La afinidad de " + characName + " es " + affinity);
-	}
+        switch (characName)
+        {
+			case ("Feliodora"):
+				Debug.Log("La afinidad de " + characName + "es" + GAMEFILE.activeFile.affFeliodora);
+				break;
+
+			case ("Gallahim"):
+				Debug.Log("La afinidad de " + characName + "es" + GAMEFILE.activeFile.affGallahim);
+				break;
+            default:
+                break;
+        }
+    }
 
 	void Command_Debug()
 	{

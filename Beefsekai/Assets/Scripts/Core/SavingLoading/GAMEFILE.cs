@@ -31,6 +31,9 @@ public class GAMEFILE
 
     public string[] tempVals = new string[9];
 
+    public int affFeliodora = 0;
+    public int affGallahim = 0;
+
     public GAMEFILE()//Faltan cosas a diferencia con el video
     {
         this.chapterName = "Chapter0_Start";
@@ -43,6 +46,9 @@ public class GAMEFILE
         charactersInScene = new List<CHARACTERDATA>();
 
         tempVals = new string[9];
+
+        this.affFeliodora = 0;
+        this.affGallahim = 0;
     }
 
     //Datos de los personajes. Entiendo que aqui deberiamos meter tambien el nivel de afinidad
@@ -56,6 +62,8 @@ public class GAMEFILE
         public string bodyExpression = "";
         public bool facingLeft = true;
         public Vector2 position = Vector2.zero;
+
+
 
         public CHARACTERDATA(Character character)
         {
