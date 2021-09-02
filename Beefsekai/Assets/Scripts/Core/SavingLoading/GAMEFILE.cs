@@ -43,6 +43,8 @@ public class GAMEFILE
         this.background = null;//OJO
         this.foreground = null;
 
+        this.music = null;
+
         charactersInScene = new List<CHARACTERDATA>();
 
         tempVals = new string[9];

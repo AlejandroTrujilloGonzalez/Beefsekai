@@ -102,13 +102,13 @@ public class NovelController : MonoBehaviour
         if (activeGameFile.foreground != null)
             BCFC.instance.background.SetTexture(activeGameFile.foreground);//////////creo que intenta cargar esto y petardea a veces
 
-		//Carga la musica
-		// if (activeGameFile.music != null)
-		//     AudioManager.instance.PlaySong(activeGameFile.music);
+        //Carga la musica
+        if (activeGameFile.music != null)
+            AudioManager.instance.PlaySong(activeGameFile.music);
 
-		//load the temporary variables back
-		//CACHE.tempVals = activeGameFile.tempVals;///////////////Mas cosas que tiene por la cara
-		CACHE.tempVals = activeGameFile.tempVals;
+        //load the temporary variables back
+        //CACHE.tempVals = activeGameFile.tempVals;///////////////Mas cosas que tiene por la cara
+        CACHE.tempVals = activeGameFile.tempVals;
 
         if (handlingChapterFile != null)
             StopCoroutine(handlingChapterFile);
@@ -144,12 +144,12 @@ public class NovelController : MonoBehaviour
         //activeGameFile.cinematic = b.cinematic.activeImage != null ? b.cinematic.activeImage.texture : null;
         activeGameFile.foreground = b.foreground.activeImage != null ? b.foreground.activeImage.texture : null;//PUEDE QUE ESTO PETARDEE
 
-		//guarda la musica
-		//activeGameFile.music = AudioManager.activeSong != null ? AudioManager.activeSong.clip : null;
+        //guarda la musica
+        activeGameFile.music = AudioManager.activeSong != null ? AudioManager.activeSong.clip : null;
 
-		//Guardado de una imagen para el tema de guardar y cargar partida
-		//string screenShotDirectory = "Assets/Resources/savData/previewImages/";
-		string screenShotPath = FileManager.savPath + "savData/GameFiles/" + activeGameFileName + ".png";
+        //Guardado de una imagen para el tema de guardar y cargar partida
+        //string screenShotDirectory = "Assets/Resources/savData/previewImages/";
+        string screenShotPath = FileManager.savPath + "savData/GameFiles/" + activeGameFileName + ".png";
 		if (FileManager.TryCreateDirectoryFromPath(screenShotPath + ".png"))
         {
 			GAMEFILE.activeFile.previewImagePath = ScreenCapture.CaptureScreenshotAsTexture();
@@ -564,9 +564,6 @@ public class NovelController : MonoBehaviour
 
 
 	//AQUI EMPIEZAN LOS COMANDOS PARA EL INTERCAMBIO DE AFINIDADES////////////////////////////////////////////////////////////////////////////////////////
-	//int valueAffinity = 0;
-	//private int feliodoraAff = 0;
-	//private int gallimAff = 0;
 
 	void Command_ChangeAffinityOf(string data)//Con este método se pone el nombre del personaje("tiene que existir previamente") y añades sum o rest para cambiar su afinidad, creo que es más intuitivo que tener muchos métodos
     {
@@ -584,8 +581,6 @@ public class NovelController : MonoBehaviour
                 else if (calc == "rest")
                 {
 					GAMEFILE.activeFile.affFeliodora -= 1;
-					//feliodoraAff -= 1;
-					//PlayerPrefs.SetInt("Feliodora", feliodoraAff);
 				}
 				break;
 
@@ -735,8 +730,8 @@ public class NovelController : MonoBehaviour
 
 		if (clip != null)
         {
-			//AudioManager.instance.PlaySFX(clip);
-			Debug.Log("cpsas de audio");
+            AudioManager.instance.PlaySFX(clip);
+            Debug.Log("cpsas de audio");
 		}
 		else
 			Debug.LogError("Clip does not exist - " + data);
@@ -746,8 +741,8 @@ public class NovelController : MonoBehaviour
 	{
 		AudioClip clip = Resources.Load("Audio/Music/" + data) as AudioClip;
 
-		//AudioManager.instance.PlaySong(clip);
-	}
+        AudioManager.instance.PlaySong(clip);
+    }
 
 	void Command_MoveCharacter(string data)
 	{
