@@ -1,13 +1,13 @@
-playMusic(intro)
+playMusic(intro) playSound(tic)
 Voz "Bien... {wa 1}Ya está aquí."debug 
 "Ahora sólo faltan un par de detalles."
-"Más nos vale que esto funcione."
+"Más nos vale que esto funcione."playSound(tic)
 
-narrator "..."playMusic(null)
-"..."
+narrator "..."playMusic(null) playSound(tic)
+"..."playMusic(guitar)
 "..."
 Yo "¿Dónde... {wa 1}estoy?"
-narrator "Abro los ojos, si es que los tenía cerrados, pero... {wa 1}no veo nada."
+narrator "Abro los ojos, si es que los tenía cerrados, pero... {wa 1}no veo nada."playMusic(intro)
 Yo "¿Cómo he terminado aquí?"changeAffinityOf(Feliodora,sum)
 narrator "¿Qué ha pasado?"changeAffinityOf(Feliodora,sum)
 "No recuerdo casi nada, salvo..."
