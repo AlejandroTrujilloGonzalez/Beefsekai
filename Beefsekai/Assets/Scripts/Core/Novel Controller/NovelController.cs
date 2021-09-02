@@ -104,7 +104,10 @@ public class NovelController : MonoBehaviour
 
         //Carga la musica
         if (activeGameFile.music != null)
-            AudioManager.instance.PlaySong(activeGameFile.music);
+        {
+			AudioManager.instance.PlaySong(activeGameFile.music);
+        }
+            
 
         //load the temporary variables back
         //CACHE.tempVals = activeGameFile.tempVals;///////////////Mas cosas que tiene por la cara
@@ -146,6 +149,7 @@ public class NovelController : MonoBehaviour
 
         //guarda la musica
         activeGameFile.music = AudioManager.activeSong != null ? AudioManager.activeSong.clip : null;
+		Debug.Log(activeGameFile.music.name);
 
         //Guardado de una imagen para el tema de guardar y cargar partida
         //string screenShotDirectory = "Assets/Resources/savData/previewImages/";

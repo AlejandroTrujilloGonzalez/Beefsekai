@@ -104,6 +104,7 @@ public class AudioManager : MonoBehaviour
     {
         AudioSource newSource = new GameObject(_name).AddComponent<AudioSource>();
         newSource.transform.SetParent(instance.transform);
+        //DontDestroyOnLoad(newSource);
         return newSource;
     }
 
