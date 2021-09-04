@@ -36,7 +36,7 @@ Feliodora "Gallahim, ¿estás seguro? Hay dos bandidos sueltos por la ciudad."
 narrator "Gallahim asiente."
 Gallahim "Si te preguntan, diles que vuelvo en cuanto descubra qué está pasando aquí. Diles que Agus y Milo están conmigo y que volveré tras pasarme por el taller. No me va a pasar nada."
 Feliodora "De acuerdo. ¿Auguste, podríais llevar esto a mi taller?"
-narrator "Auguste asiente y pide que vengan varias personas por el mismo dispositivo que Feliodora usó antes. Gallahim me mira de repente, curioso."exit(Feliodora)
+narrator "Auguste asiente y pide que vengan varias personas por el mismo dispositivo que Feliodora usó antes. Gallahim me mira de repente, curioso."exit(Feliodora) move(Gallahim,0.5)
 Gallahim "¡Perdona! Me llamo Gallahim, soy un poco el dueño de todo ésto. ¿Y tú qué eres?"
 Asshimilos "[Quién] eres, Gallahim. Se pregunta quién se es, no qué se es."
 Gallahim "¡Pero mira esto, Milo! ¿Tú habías visto alguna vez algo así? ¿Tan… pequeño? ¿Tan… sin músculos?"
@@ -87,7 +87,7 @@ Gallahim "Vamos a comer algo. Mis padres siempre me han dicho que con el estóma
 Asshimilos "¡Tú también lo estarías, si entendieras que estamos delante de alguien imposible!"
 Auguste "¿Dónde desea ir?"
 Gallahim "Vamos a la taberna. Es lo más cercano. Llamaremos a Feli, que pidió antes algo de comida."setBackground(BridgeTexture) 
-narrator "Nos sentamos en una parte aislada de la taberna, donde tengo a varias personas mirándome fijamente, con un plato de comida delante de nosotros. Gallahim tiene una sonrisa de oreja a oreja, Feliodora arruga el hocico y Asshimilos no deja de hablar en voz queda."enter(Feliodora) setPosition(Feliodora,)
+narrator "Nos sentamos en una parte aislada de la taberna, donde tengo a varias personas mirándome fijamente, con un plato de comida delante de nosotros. Gallahim tiene una sonrisa de oreja a oreja, Feliodora arruga el hocico y Asshimilos no deja de hablar en voz queda."enter(Feliodora) setPosition(Feliodora,0.66) move(Gallahim,0.33)
 Asshimilos "Esto no es normal. Esto es imposible. Es increíble, no, es más, me niego a creérmelo. Aquí tiene que haber truco..."
 narrator "Feliodora se ríe mientras devora un trozo de carne más grande que mi cabeza."
 Feliodora "No se lo tengas en cuenta, dicen que el saber no ocupa lugar, pero como ves, en tan poco espacio no cabe ni la educación."
