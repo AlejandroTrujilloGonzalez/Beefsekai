@@ -1,7 +1,7 @@
 narrator "Unos minutos después…"
-narrator "Ante mí aparecen tres personas. La primera es un hombre colosal enfundado en un traje que apenas es capaz de contener su musculatura. Su rostro casi infantil porta una sonrisa que casi parece traicionar tu tamaño." enter(Gallahim)
-"Detrás de él hay otro hombre casi igual de grande y prácticamente igual de fortachón. Lleva una pila de documentos, ropa negra holgada, gafas y una pequeña bolsa de cuero." enter(Guardaespaldas)
-"A su lado hay un pequeño montón de tela del que sobresalen dos botas. Apenas me llega a la rodilla, y su cara está ensombrecida por su sombrero."enter(Asshimilos)
+narrator "Ante mí aparecen tres personas. La primera es un hombre colosal enfundado en un traje que apenas es capaz de contener su musculatura. Su rostro casi infantil porta una sonrisa que casi parece traicionar tu tamaño." enter(Gallahim) setPosition(Gallahim,0.33) move(Feliodora,0.66)
+"Detrás de él hay otro hombre casi igual de grande y prácticamente igual de fortachón. Lleva una pila de documentos, ropa negra holgada, gafas y una pequeña bolsa de cuero." enter(Guardaespaldas) setPosition(Guardaespaldas,0.06)
+"A su lado hay un pequeño montón de tela del que sobresalen dos botas. Apenas me llega a la rodilla, y su cara está ensombrecida por su sombrero."enter(Asshimilos) setPosition(Asshimilos,0.9)
 Feliodora "Te presento a Gallahim Bouler, dueño de este mercado y de varios negocios en la ciudad. Cuesta un poco hacerse entender con él, pero es de lo mejor que hay por aquí. Detrás de él, su guardaespaldas. ¿Auguste, eras?"
 Guardaespaldas "Sí, señora."
 Feliodora "Pues Auguste. Y el tapón es Milo."
@@ -9,7 +9,7 @@ Asshimilos "Asshimilos Zervakis, Alto Hechicero, embajadore de la República má
 narrator "Hay cierto rintintín escondido en su voz. Feliodora se ríe entre dientes."
 Feliodora "Bueno, Alto…"
 narrator "Eso parece provocarle en un momento, así que Asshi...lo que sea y Feliodora empiezan a discutir. El grandullón apenas puede contenerse la risa y el guardaespaldas de detrás, con aspecto cansado, se acerca a mí. La gente se ríe, pero no les presta demasiada atención."
-Guardaespaldas "Auguste Salvator, encantado. Por favor, disculpe la escena, pero me temo que las confianzas son lo que tienen. ¿Entiendo que doña Tuercacero nos llamó por usted?" exit(Guardaespaldas) enter(Auguste)
+Guardaespaldas "Auguste Salvator, encantado. Por favor, disculpe la escena, pero me temo que las confianzas son lo que tienen. ¿Entiendo que doña Tuercacero nos llamó por usted?" exit(Guardaespaldas) enter(Auguste) setPosition(Auguste,0.06)
 Yo "Sí, creo que sí. Acabo de llegar y… bueno, no sé muy bien dónde estoy."
 Auguste "¿Cómo es posible eso? ¿No ha cruzado usted las puertas?"
 Yo "No, no exactamente. Me han hecho aparecer por aquí cerca."
@@ -32,7 +32,7 @@ narrator "Ambos se callan al momento. La cola de Feliodora da latigazos."
 Auguste "Don Zervakis, ¿podría usted acompañarnos un momento? Parece que tenemos un caso de magia descontrolada."
 narrator "Feliodora arruga el hocico."
 Auguste "Doña Tuercacero, ¿podría ir a la sede principal y contarle a los Bouler lo que ha pasado? Dígales a los guardas que la envío yo."
-Feliodora: "Gallahim, ¿estás seguro? Hay dos bandidos sueltos por la ciudad."
+Feliodora "Gallahim, ¿estás seguro? Hay dos bandidos sueltos por la ciudad."
 narrator "Gallahim asiente."
 Gallahim "Si te preguntan, diles que vuelvo en cuanto descubra qué está pasando aquí. Diles que Agus y Milo están conmigo y que volveré tras pasarme por el taller. No me va a pasar nada."
 Feliodora "De acuerdo. ¿Auguste, podríais llevar esto a mi taller?"
@@ -44,7 +44,7 @@ narrator "Gallahim hace gestos con las manos, indicando algo estrecho. El tal Mi
 Asshimilos "Prefiero no hablar de tamaño, si no te importa."
 narrator "Hay un ambiente incómodo durante un segundo. Auguste tose."
 Asshimilos "Discúlpale, de verdad. Le traiciona la boca algunas veces. ¿Dónde quieres ir, Auguste?"
-narrator "Tras buscar un momento y que todo el mundo salude a mis acompañantes, llegamos a donde aparecí. Mi cubo de basura mellado indica que nadie se ha molestado en acercarse por aquí." transBackground(callejón)
+narrator "Tras buscar un momento y que todo el mundo salude a mis acompañantes, llegamos a donde aparecí. Mi cubo de basura mellado indica que nadie se ha molestado en acercarse por aquí." setBackground(Alcantarilla)
 "De repente, Asshimilos empieza a gemir y se encoge de dolor. Gallahim y Auguste, pálidos, se abalanzan sobre él, bloqueándome la vista."
 Gallahim "¡MILO! ¿Estás bien? ¿Qué tienes, hermano?"
 Asshimilos "Agua. {wa 1} Agua... por favor."
@@ -84,9 +84,9 @@ narrator "Los tres me miran fijamente. La expresión de Asshimilos es invisible 
 Gallahim "Vamos a comer algo."
 Auguste "¿Señor?"
 Gallahim "Vamos a comer algo. Mis padres siempre me han dicho que con el estómago vacío no se resuelven misterios. Y es la primera vez que veo a Milo tan agitado."
-Milo "¡Tú también lo estarías, si entendieras que estamos delante de alguien imposible!"
+Asshimilos "¡Tú también lo estarías, si entendieras que estamos delante de alguien imposible!"
 Auguste "¿Dónde desea ir?"
-Gallahim "Vamos a la taberna. Es lo más cercano. Llamaremos a Feli, que pidió antes algo de comida."transBackground(taberna)
+Gallahim "Vamos a la taberna. Es lo más cercano. Llamaremos a Feli, que pidió antes algo de comida."setBackground(BridgeTexture)
 narrator "Nos sentamos en una parte aislada de la taberna, donde tengo a varias personas mirándome fijamente, con un plato de comida delante de nosotros. Gallahim tiene una sonrisa de oreja a oreja, Feliodora arruga el hocico y Asshimilos no deja de hablar en voz queda."
 Asshimilos "Esto no es normal. Esto es imposible. Es increíble, no, es más, me niego a creérmelo. Aquí tiene que haber truco..."
 narrator "Feliodora se ríe mientras devora un trozo de carne más grande que mi cabeza."
@@ -134,11 +134,11 @@ Auguste "Bueno, diría que tiene usted varias opciones. ¿Hay algún sitio que p
 choice "Dónde dormir"
 {
   "Con Gallahim"
-	*Load(1bGallahim)
+	Load(1bGallahim)
   "Con Feliodora"
-	*Load(1aFeliodora)
+	Load(1aFeliodora)
   "Con Asshimilos"
-	*Load(1cAsshimilos)
+	Load(1cAsshimilos)
   "Preferiría estar a solas. Tengo mucho en que pensar."
-	*Load(1dRefugio)
+	Load(1dRefugio)
 }

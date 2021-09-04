@@ -95,8 +95,8 @@ narrator "En una pared hay un gran trozo de metal pulido, y observo mi reflejo e
 narrator "Complexión, delgada. Pelo, claro. Brazos... {wa 1}normaluchos. Ropa... prefiero no pensar en ello."
 narrator "En ese momento, me doy cuenta de los ojos de la gente clavados en mí. Soy la única persona que no parece que desayune esteroides a la proteína."
 Yo "Vale, tengo que salir de aquí."
-Voz "¿Y a dónde exactamente quieres ir, tapón?"enter(Tigre) move(Tigre,0.1) next
-narrator "Veo ante mí a dos bicharracos. Uno es un tigre venido a más y el otro una estantería con patas."enter(Macarra) move(Macarra,0) next
+Voz "¿Y a dónde exactamente quieres ir, tapón?"enter(Tigre) setPosition(Tigre,0.3) next
+narrator "Veo ante mí a dos bicharracos. Uno es un tigre venido a más y el otro una estantería con patas."enter(Macarra) setPosition(Macarra,0.6) next
 narrator "Me miran con aspecto burlón. No me están temblando las piernas, para nada."
 Tigre "¿Qué tenemos aquí? No había visto a alguien tan canijo en mi vida."
 Macarra "¿Te has perdido? Diría que con esas piernecitas no puedes ir muy lejos."
@@ -109,7 +109,7 @@ Tigre "¿El qué de qué? ¿Te crees que somos imbéciles o algo?"
 narrator "El tigretón de los cereales me coge del cuello de la ropa. Y mira que acabo de no morirme. Si ya me dijo mi madre que no me quitase la medallita de la virgen."
 narrator "La gente nos señala, nos apunta con el dedo, susurra a nuestras espaldas."
 Tigre "Me importa un bledo. Por una especie como tú sacaremos unas monedas en el mercado negro."
-narrator "En ese momento, una mano envuelta en pelaje cobrizo agarra la muñeca del tigre, y los dos matones se paran a mirarla con los ojos como platos."enter(Feliodora)
+narrator "En ese momento, una mano envuelta en pelaje cobrizo agarra la muñeca del tigre, y los dos matones se paran a mirarla con los ojos como platos."enter(Desconocida) setPosition(Desconocida,0.5) move(Tigre,0.2) move(Macarra,0.7)
 Desconocida "¿Me podéis explicar QUÉ ESTÁIS HACIENDO DELANTE. {wa 1}DE. {wa 1}MI. {wa 1}PUESTO?"
 narrator "El hombre se ha quedado blanco como la pared. El tigre tiene las orejas y el rabo mirando hacia el cielo."
 Desconocida "Y ya que estamos, {wa 1}¿Por qué estáis molestando a alguien que no os ha hecho nada?"
@@ -122,7 +122,7 @@ narrator "Los matones asienten al unísono y salen pitando."exit(Tigre;Macarra)
 Yo "Gracias. Creo que me acaba usted de salvar el pellejo." 
 Desconocida "De nada. Mi nombre es Feliodora Tuercacero, ingeniera mecánica y regente de este puesto."
 Yo "Encantado. Mi nombre es..."
-Feliodora "Un placer. Y dime, ¿de qué especie eres? Nunca he visto a nadie como tú por aquí."exit(Desconocida)
+Feliodora "Un placer. Y dime, ¿de qué especie eres? Nunca he visto a nadie como tú por aquí."exit(Desconocida) enter(Feliodora) setPosition(Feliodora,0.5)
 Yo "Hasta donde yo sé, soy humano."
 narrator "Feliodora se ríe."
 Feliodora "Ya, claro. ¿Y qué te han hecho para acabar así? ¿Una maldición?"
