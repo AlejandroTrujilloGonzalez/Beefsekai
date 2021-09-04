@@ -4892,7 +4892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2084859700}
   m_Layer: 0
-  m_Name: testMario
+  m_Name: testMariotequiermuchio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
