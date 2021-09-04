@@ -69,7 +69,7 @@ public class GameSavePanel : MonoBehaviour
                 {
                     b.button.interactable = allowSavingFromThisScreen;
                     b.previewDisplay.texture = Resources.Load<Texture2D>("Art/Images/UI/EmptyGameFile");
-                    b.dateTimeText.text = page.ToString() + "\n" + "empty file...";
+                    b.dateTimeText.text = page.ToString() + "\n" + "archivo vacío...";
                 }
             }
         }
@@ -80,7 +80,7 @@ public class GameSavePanel : MonoBehaviour
                 BUTTON b = buttons[i];
                 b.button.interactable = allowSavingFromThisScreen;
                 b.previewDisplay.texture = Resources.Load<Texture2D>("Art/Images/UI/EmptyGameFile");
-                b.dateTimeText.text = page.ToString() + "\n" + "empty file...";
+                b.dateTimeText.text = page.ToString() + "\n" + "archivo vacío...";
             }
         }
     }
@@ -113,7 +113,7 @@ public class GameSavePanel : MonoBehaviour
         }
         else
         {
-            selectedButton.dateTimeText.text = "<color=red>FILE NOT FOUND";
+            selectedButton.dateTimeText.text = "<color=red>SIN ARCHIVOS";
             loadButton.interactable = false;
             saveButton.interactable = allowSavingFromThisScreen;
             deleteButton.interactable = true;

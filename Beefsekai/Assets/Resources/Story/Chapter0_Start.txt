@@ -1,15 +1,14 @@
-playMusic(intro) playSound(tic)
 Voz "Bien... {wa 1}Ya está aquí."debug 
 "Ahora sólo faltan un par de detalles."
-"Más nos vale que esto funcione."playSound(tic)
+"Más nos vale que esto funcione."
 
-narrator "..."playMusic(null) playSound(tic)
-"..."playMusic(guitar)
+narrator "..."
+"..."
 "..."
 Yo "¿Dónde... {wa 1}estoy?"
-narrator "Abro los ojos, si es que los tenía cerrados, pero... {wa 1}no veo nada."playMusic(intro)
-Yo "¿Cómo he terminado aquí?"changeAffinityOf(Feliodora,sum)
-narrator "¿Qué ha pasado?"changeAffinityOf(Feliodora,sum)
+narrator "Abro los ojos, si es que los tenía cerrados, pero... {wa 1}no veo nada."
+Yo "¿Cómo he terminado aquí?"
+narrator "¿Qué ha pasado?"
 "No recuerdo casi nada, salvo..."
 "..."
 "Estaba caminando por la calle del mercadillo, y de pronto, sentí que me caía."
@@ -18,14 +17,14 @@ narrator "¿Qué ha pasado?"changeAffinityOf(Feliodora,sum)
 "Luego, todo se volvió negro, y no veo nada. ¿No debería haber alguien?"
 
 "..." setBackground(Alcantarilla)
-"A medida que pienso, siento la respiración de alguien cerca de mí."enter(Madrina) setPosition(Madrina,0) move(Madrina,0.8)
+"A medida que pienso, siento la respiración de alguien cerca de mí."enter(Madrina)
 Voz femenina "Vaya, qué desgracia más grande. ¡Con el buen día que estábamos teniendo!"
 narrator "Tenía delante de mí... ¿Un corgi?"
 "No, espera, lo más importante, ¿cómo dem...?"
 Voz femenina "Eso ha sido p'haberse matao. Literalmente hablando."
 narrator "La criatura agita un palito que lleva en mi dirección."
 "Bueno, supongo que lo primero es lo primero. Soy tu Bara Madrina."
-Yo "¿Mande?"getAffinity(Feliodora)
+Yo "¿Mande?"
 *Madrina "Tu Bara Madrina."
 narrator "Me he debido dar un buen golpe. Me intento buscar un chichón, pero..."
 "No me siento las manos... {wa 1}ni la cabeza."
@@ -34,24 +33,24 @@ Yo "¡¿QUÉ DEMONIOS?!"
 Yo "¡¿QUE ESTOY QUÉ?!"
 *Madrina "Te caíste por una alcantarilla (que ya hay que tener mala suerte). Iba a ser un accidente mortal, pero pude salvarte en el último instante y traerte aquí, al espacio entre los mundos."
 narrator "Si esto era una broma, estaba tan elaborada como poca era la gracia que tenía."
-Yo "N-no puede ser. ¿Y ahora qué? ¿Qué va a pasar conmigo?"changeAffinityOf(Feliodora,sum)
-*Madrina "No puedo devolverte a tu mundo. Lo siento, no tengo la autoridad para ello. Pero puedo ofrecerte algo parecido."changeAffinityOf(Feliodora,sum)
+Yo "N-no puede ser. ¿Y ahora qué? ¿Qué va a pasar conmigo?"
+*Madrina "No puedo devolverte a tu mundo. Lo siento, no tengo la autoridad para ello. Pero puedo ofrecerte algo parecido."
 
 choice "Estoy bastante confundido"
 {
   "Y quien tiene la autoridad?"
- *Madrina "Alguien a quien le debo un favor, quizá algun dia lo conozcas"changeAffinityOf(Feliodora,sum)
+ *Madrina "Alguien a quien le debo un favor, quizá algun dia lo conozcas"
   "Algo parecido?"
 	*Madrina "Si, Mira. yo no pertenezco exactamente a tu mundo, pero el mio tiene problemas. Veras..."
 }
 
 Madrina "Éste es mi mundo. Es… un poco diferente del tuyo, desde luego. Su nombre es {wa 1}Ruwulia."
-"No está TAN desarrollado como el tuyo, pero, por si no lo has notado, ¡tenemos magia!"getAffinity(Feliodora)
+"No está TAN desarrollado como el tuyo, pero, por si no lo has notado, ¡tenemos magia!"
 "Bueno, lo que tú llamarías "magia" al menos."
 Yo "¿Y yo qué tengo que ver?"
 Madrina "Verás, Ruwulia tiene… un par de problemas. No te puedo decir demasiado. Probablemente lo descubras nada más llegar."
 "Pero la verdad es que nos vendría bien un poco de ayuda. Y tu alma parece combinar bastante bien con este mundo, así que pedí el favor de extraerla tras tu… {wa 1}eh…{wa 1} percance."
-Yo "Pero, ¿y mi cuerpo?"getAffinity(Feliodora)
+Yo "Pero, ¿y mi cuerpo?"
 Madrina "Me temo que ningún proceso es perfecto. Lo siento."
 narrator "Dedico unos segundos a pensar en toda esta situación."
 Madrina "Lo que te ofrezco es una segunda vida, en mi mundo. Te daré un cuerpo con el que te sientas a gusto y te ahorrarás tener que revivir una infancia."
