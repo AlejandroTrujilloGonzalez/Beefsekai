@@ -615,6 +615,16 @@ public class NovelController : MonoBehaviour
 				}
 				break;
 
+			case "Asshimilos":
+                if (calc == "sum")
+                {
+					GAMEFILE.activeFile.affAsshimilos += 1;
+                }
+                else if (calc == "rest")
+                {
+					GAMEFILE.activeFile.affAsshimilos -= 1;
+                }
+				break;
 
             default:
                 break;
@@ -673,6 +683,17 @@ public class NovelController : MonoBehaviour
 
 			case "Gallahim":
                 if (affinityNecesary <= GAMEFILE.activeFile.affGallahim)
+                {
+					Command_Load(txtName);
+                }
+                else
+                {
+					return;
+                }
+				break;
+
+			case "Asshimilos":
+                if (affinityNecesary <= GAMEFILE.activeFile.affAsshimilos)
                 {
 					Command_Load(txtName);
                 }

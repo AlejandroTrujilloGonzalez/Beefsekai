@@ -414,6 +414,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1752125467}
     m_Modifications:
+    - target: {fileID: 6750470206115228060, guid: be6c4282766e1df44b4aabb6459c9972, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6750470206877575888, guid: be6c4282766e1df44b4aabb6459c9972, type: 3}
       propertyPath: m_Name
       value: Menu
