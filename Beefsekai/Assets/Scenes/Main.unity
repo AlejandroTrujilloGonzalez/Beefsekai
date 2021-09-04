@@ -1342,6 +1342,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -125
       objectReference: {fileID: 0}
+    - target: {fileID: 7369504662575851644, guid: b49bf107693100e4bac04d274df46455, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49bf107693100e4bac04d274df46455, type: 3}
 --- !u!224 &416183075 stripped
