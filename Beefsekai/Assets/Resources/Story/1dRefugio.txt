@@ -1,0 +1,24 @@
+narrator "Feliodora arruga el hocico de nuevo."
+Feliodora "No creo que sea la mejor opción, pero desde luego tienes que tener mucho en qué pensar, y este barullo no te debe estar ayudando. Lo puedo entender."exit(Feliodora)
+Asshimilos "No, creo que es lo más sabio. Será mejor ir con los Bouler por la mañana temprano y dedicar esta noche a ordenar tus pensamientos. {wa 1}Yo también tengo mucho en que pensar."
+narrator "Nos despedimos de Feliodora y de Asshimilos, que se quedan comiendo y bebiendo. Al poco, nos dirigimos a un edificio enorme con una efigie femenina que me es vagamente familiar."transBackground(mercado)
+Gallahim "Sigo pensando que sería mejor que te hubieras quedado con uno de nosotros. No me hace gracia perderte de vista toda la noche."
+narrator "Auguste parece exasperado."
+Auguste "No le pasará nada, señor. El refugio es perfectamente seguro y está bendecido por la misma Diosa."
+Gallahim "Lo sé, Gus, lo sé. Pero no es eso… no te lo sé decir. Simplemente me hace sentir mal."
+Auguste "El señor Thiagus estaría orgulloso de escucharle. Pero no podemos ofrecer una mano amiga a nadie y no respetar su decisión, si necesita estar a solas."
+narrator "Gallahim no suena convencido, pero cede."
+Gallahim "Auguste, ¿puedes hablar con la dirección? A ver si le pueden dar aunque sea una ropa de aprendiz o algo."
+Auguste "Sí, señor." exit(Auguste)
+narrator "Gallahim se vuelve hacia mí, materializa una vara de madera y me la ofrece."
+Gallahim "Escúchame. Esta vara tiene uno de los espíritus de mi padre. Si te pasase algo, úsala para defenderte. El espíritu nos alertará y acudiremos corriendo a ayudarte, ¿vale?"
+narrator "Gallahim me pone la vara delante. Dadas las circunstancias, decido aceptarla. Gallahim me sonríe y me pone la mano en el pelo."
+narrator "De repente, nos invitan a entrar en el refugio." exit(Gallahim)
+narrator "Tras un baño bastante sucinto, me acompañan a una habitación donde me esperan unos ropajes sencillos." transBackground(negro)
+Yo "Dios mío… ¿en qué lío me he metido?"
+Yo "Estoy en otro mundo, no tengo nada a mi nombre, y encima, ¡creen que mi Bara Madrina es peligrosa!"
+Yo "Tengo que arreglar esta situación como sea, y tengo que encontrar a alguien que sepa cómo devolverme a mi hogar."
+narrator "Esa noche se me hace muy larga. En ocasiones, veo cómo la vara reluce bajo la luz de las lunas que entra por la ventana, como si me quisiera hacer compañía."
+Yo "Me pregunto qué estará pasando en mi mundo…"
+narrator "La luz se vuelve difusa con la humedad de mis ojos. Al final, consigo dormir."
+Load(GameOver)

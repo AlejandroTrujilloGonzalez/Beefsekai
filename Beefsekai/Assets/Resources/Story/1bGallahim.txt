@@ -1,0 +1,96 @@
+Gallahim "¡Genial! Padre se va a poner muy contento de tener tu testimonio!" 
+Auguste "En ese caso, creo que será mejor que avise a los Bouler de que preparen una habitación de invitados. Si me disculpan unos segundos..." exit(Guardaespaldas)
+narrator "Feliodora se gira hacia mí y me guiña el ojo discretamente."
+Feliodora "Oye, ¿se te apetece venir a la barra? Así vemos qué más te podemos coger que te guste, que estás en los huesos." exit(Gallahim)
+narrator "Acompaño a Feliodora a la barra, y se pone a mi lado, con una pata encima del mostrador, pidiendo una bebida." exit(Asshimilos)
+Feliodora "Mira…{wa 1} los Bouler son buena gente. Siempre han cuidado muy bien de mí y de mi negocio. Pero son MUY protectores con su hijo."
+Yo "¿Qué quieres decir?"
+Feliodora "Quiero decir que no digas nada fuera de lugar delante de ellos, y, por si no te has dado cuenta, no puedes mentir cerca de casi nadie aquí."
+narrator "Feliodora da un trago a su bebida. Sus ojos centellean."
+Feliodora "No te olvides de que son los que mandan aquí. Y, oye..."
+Yo "¿Sí?"
+Feliodora "Come algo más. De verdad, me estoy poniendo nerviosa de verte así." enter(Asshimilos)
+narrator "Me vuelvo a la mesa con un bocadillo que Feliodora en la mano. Auguste ha vuelto y Gallahim se está riendo a su lado." enter(Guardaespaldas)
+Asshimilos "¡Y le dije: pues no sé, pero yo pasé por aquí esta mañana y había un obrero amontonando ladrillos!" enter(Gallahim)
+narrator "Gallahim se ríe a carcajadas. Auguste, con una mano sobre la cara, de una forma muy discreta."
+Gallahim "Oh, ¿ya estás de vuelta? Veo que has cogido algo rico, esa carne es de las más jugosas que vas a probar por aquí."
+Auguste "Los Bouler les esperan cuando estén preparados."
+
+choice "¿Nos esperan?"
+{
+  "¿Viven cerca? Ha vuelto usted enseguida."
+	*narrator "Auguste saca su varita del bolsillo y me mira."
+  "Eh… ¿hay algún sitio donde pueda adecentarme un poco?"
+	*Auguste "No se preocupe, les he explicado su situación. No les importa."
+}
+
+narrator "Termino de comerme mi bocadillo y salimos hacia la casa de Gallahim. {w 1} Asshimilos se despide con un salto hacia el cielo que no me esperaría ver de ningún ser humano… o lo que sea que son aquí." exit(Asshimilos) transBackground(mansion)
+narrator "Tras cruzar el umbral de la gigantesca mansión, nos encontramos en un recibidor lleno de todo el lujo posible. En una fuente en el centro, dos colosos juegan a tirarse bolas de agua." enter(Allon)
+narrator "Uno de ellos es la viva imagen de Gallahim, pero aún más grande y fuerte. Tiene arrugas en los ojos, pero una mirada feliz." enter(Thiagus)
+narrator "El otro es ligeramente más bajo pero prácticamente igual de ancho. Tiene el pelo plateado y un aire efímero a su alrededor."
+Gallahim "Te presento a mis padres, Allon y Thiagus."
+narrator "Allon me extiende una mano llena de callos, del tamaño de mi antebrazo. Se la aprieto como puedo."
+Allon "Allon Bouler, un placer. ¿Así que tú eres de quien tanto hemos oído hablar en el día de hoy?"
+narrator "El hombre de pelo blanco parece sorprendido de verme."
+Thiagus "¡Allon! ¿Qué modales son esos? Discúlpele las formas. Hemos oído tanto de usted en tan poco tiempo, que a mi señor marido le nace la familiaridad sola."
+Yo "¿Tanto?"
+Thiagus "Sí, claro. ¿No es usted la persona que ha puesto patas arriba el callejón B del mercado, casi causado un ataque de nervios al pobre Milillo, y revelado que tenemos un problema urgente de seguridad en esta ciudad?"
+Gallahim "¡Papá!"
+Yo "Lo siento. Pero no he querido hacer nada de eso, ¡han sido accidentes!"
+narrator "Thiagus sonríe con picardía."
+Thiagus "Oh, no, por favor, discúlpeme a mí. Es la primera vez que tenemos unos disturbios mágicos de este calibre, y estamos todos un poco nerviosos. ¡Aunque imagino que nada comparado con usted, que ha llegado desde otro mundo!"
+narrator "A Gallahim se le cae la boca al suelo. Allon, con un movimiento sutil de la mano, acerca una bola de agua a la parte de atrás de la cabeza de Thiagus."
+Gallahim "¿Cómo que otro mundo? Pero… ¿eres un alienígena?"
+narrator "Al escuchar eso, Allon empieza a reírse a carcajadas y pierde el control sobre la bola de agua que estaba elevando. Thiagus también se ríe y también pierde el control sobre la suya… {wa 1} que cae justo encima de la cabeza de Allon."
+Allon "¡AY, QUÉ FRÍA!"
+Thiagus "Cariño, llevamos treinta años casados, ¿de verdad piensas que no me estaba viendo venir tu jugada desde hace un rato?"
+narrator "Ante el pandemonio, Auguste cierra los ojos y se echa la mano a la frente. Allon se seca el pelo con un viento fuerte que nace de sus manos."
+Allon "Sí, no todos los días tenemos visitantes de otros mundos. Además, es increíble, la fisionomía es… totalmente diferente."
+Gallahim "Pero, ¿qué queréis decir?"
+Thiagus "Hace un rato, envié a mis espíritus a investigar tras el informe de la chica Tuercacero. Los patrones mágicos no se parecen a nada que conozcamos en este mundo."
+Allon "Además, el informe de Auguste denotaba una anomalía de primer orden, llámese, un ser humano sin aura. Es decir, una criatura sapiente que no ha desarrollado resistencia natural a la magia ambiental."
+narrator "Mientras hablan, nos sentamos en unos sofás del recibidor. Allon se apoya sobre Thiagus."
+Allon "Hasta los recién nacidos tienen un poco de aura. Eso significa que esta persona, simplemente, no ha nacido en este mundo."
+narrator "Gallahim me mira."
+Gallahim "¿Y por qué no me has dicho que eras alienígena?"
+
+choice "Qué responder…"
+{
+  "¡Pero que no soy alienígena! ¡Soy de San Pablo!"
+	*Gallahim "Vale, perdón, es que no entiendo lo que pasa…"
+  "Bueno, tampoco has preguntado."
+	*narrator "Gallahim se ríe con inocencia" changeAffinityOf(Gallahim,sum)
+}
+
+Thiagus "Hijo, a veces nos encontramos cosas que no entendemos, y es nuestro trabajo obtener toda la información que podamos."
+Gallahim "Lo siento, papá."
+
+choice "Intervenir…"
+{
+  "No es culpa tuya. No podías haber previsto esto."
+	*Auguste "Señor, tiene razón. Nadie podía haber estado preparado para una eventualidad como ésta.""
+  "Siento la confusión causada."
+	*Thiagus "No es tu culpa, por favor. Entendemos lo complicado de la situación." changeAffinityOf(Padres,sum)
+}
+
+narrator "Thiagus coge una galleta de una fuente cercana y me la ofrece con una sonrisa."
+Thiagus "De todos modos, no hay nada de lo que disculparse. Tenemos varias preocupaciones a las que atender, y me temo que su ayuda nos va a ser muy necesaria."
+Allon "Mañana temprano, Auguste, nuestro hijo, tú y yo…"
+Thiagus "Usted, Allon."
+Yo "Pueden tutearme sin problemas."
+narrator "Allon me guiña el ojo y sonríe. Thiagus suspira."
+Allon "Mañana temprano, Auguste, nuestro hijo, TÚ y yo vamos a ir a la catedral de la Diosa, a ver si encontramos algún registro de visitantes de otros mundos."
+Allon "Después, iremos al estudio de Milo y veremos si podemos producir una imagen de la bruja esa que te ha mandado aquí."
+Thiagus "Asshimilos Zervakis es un poco… inflexible con su forma de ver la magia. Probablemente os paséis toda la tarde allí intentando sacar algo en claro. A todo esto, ¿habéis cenado, no?"
+Auguste "Sí, señor."
+Thiagus "En ese caso, creo que lo mejor será tomar un baño e ir a dormir. Sin ofender, pero andar revolcándose por callejones… no es lo más saludable. Déjale tu ropa a Auguste, mañana te conseguiremos algo mejor."
+Allon "Thiagus, no tiene nada más que ponerse."
+Gallahim "Bueno, podemos darle algo de cuando yo era más pequeño."
+Thiagus "Había pensado en ello. ¿Quizá algo de cuando Galli tenía nueve años, estaría bien?"
+narrator "Allon me mira con actitud evaluadora y empieza a discutir de ropa con Thiagus."
+Gallahim "Mejor vámonos. Te llevaré al baño y te daré algo que encuentre. Por el momento, será mejor que duermas en mi habitación, que tengo una cama adicional."
+Allon "...¡cuero! ¡No te puedes equivocar con unas buenas bandas de cuero!" exit(Allon)
+Thiagus "...te digo que no, que no son formas, un tabardo bonito le sirve hasta de túnica, ¿qué mide, metro sesenta?" exit(Thiagus)
+narrator "Auguste nos acompaña al baño y me da unos ropajes sencillos. Me quedan enormes. El baño es colosal, lleno de grifos mágicos y productos que no había visto nunca."
+narrator "Después de eso, vamos a la habitación de Gallahim, donde hablamos de mi mundo hasta que nos quedamos dormidos. Mi cama se hizo para un amigo suyo, así que caben cinco como yo." transBackground(negro)
+Load(DemoOver)

@@ -1,4 +1,4 @@
-Voz "Bien... {wa 1}Ya está aquí."debug 
+Voz "Bien... {wa 1}Ya está aquí." 
 "Ahora sólo faltan un par de detalles."
 "Más nos vale que esto funcione."
 
@@ -139,6 +139,6 @@ Yo "¿Qué? ¿Qué pasa?"
 narrator "Feliodora me agarra y me arrastra hacia el puesto, de donde coge un artilugio cuadrado."
 Feliodora "Puesto 632, ¿me recibís?, soy Feli del puesto 632. {wa 1}Necesito a los muchachos y al brujo. Tengo una situación delicada."
 narrator "Feliodora gira su cabeza, mirándome con atención de arriba abajo, una sonrisa dejando entrever sus colmillos."
-Feliodora "Y traed un plato de comida, por la Diosa."Load(02)
+Feliodora "Y traed un plato de comida, por la Diosa."
 
-
+Load(Chapter1_Start)
