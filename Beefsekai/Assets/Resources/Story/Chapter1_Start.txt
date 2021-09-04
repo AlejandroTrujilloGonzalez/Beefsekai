@@ -86,8 +86,8 @@ Auguste "¿Señor?"
 Gallahim "Vamos a comer algo. Mis padres siempre me han dicho que con el estómago vacío no se resuelven misterios. Y es la primera vez que veo a Milo tan agitado."
 Asshimilos "¡Tú también lo estarías, si entendieras que estamos delante de alguien imposible!"
 Auguste "¿Dónde desea ir?"
-Gallahim "Vamos a la taberna. Es lo más cercano. Llamaremos a Feli, que pidió antes algo de comida."setBackground(BridgeTexture)
-narrator "Nos sentamos en una parte aislada de la taberna, donde tengo a varias personas mirándome fijamente, con un plato de comida delante de nosotros. Gallahim tiene una sonrisa de oreja a oreja, Feliodora arruga el hocico y Asshimilos no deja de hablar en voz queda."
+Gallahim "Vamos a la taberna. Es lo más cercano. Llamaremos a Feli, que pidió antes algo de comida."setBackground(BridgeTexture) 
+narrator "Nos sentamos en una parte aislada de la taberna, donde tengo a varias personas mirándome fijamente, con un plato de comida delante de nosotros. Gallahim tiene una sonrisa de oreja a oreja, Feliodora arruga el hocico y Asshimilos no deja de hablar en voz queda."enter(Feliodora) setPosition(Feliodora,)
 Asshimilos "Esto no es normal. Esto es imposible. Es increíble, no, es más, me niego a creérmelo. Aquí tiene que haber truco..."
 narrator "Feliodora se ríe mientras devora un trozo de carne más grande que mi cabeza."
 Feliodora "No se lo tengas en cuenta, dicen que el saber no ocupa lugar, pero como ves, en tan poco espacio no cabe ni la educación."
@@ -134,11 +134,11 @@ Auguste "Bueno, diría que tiene usted varias opciones. ¿Hay algún sitio que p
 choice "Dónde dormir"
 {
   "Con Gallahim"
-	Load(1bGallahim)
+Load(1bGallahim)
   "Con Feliodora"
-	Load(1aFeliodora)
+Load(1aFeliodora)
   "Con Asshimilos"
-	Load(1cAsshimilos)
+Load(1cAsshimilos)
   "Preferiría estar a solas. Tengo mucho en que pensar."
-	Load(1dRefugio)
+Load(1dRefugio)
 }
