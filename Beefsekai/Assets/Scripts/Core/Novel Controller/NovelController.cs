@@ -149,7 +149,6 @@ public class NovelController : MonoBehaviour
 
         //guarda la musica
         activeGameFile.music = AudioManager.activeSong != null ? AudioManager.activeSong.clip : null;
-		Debug.Log(activeGameFile.music.name);
 
         //Guardado de una imagen para el tema de guardar y cargar partida
         //string screenShotDirectory = "Assets/Resources/savData/previewImages/";
@@ -205,27 +204,44 @@ public class NovelController : MonoBehaviour
 			}
 		}
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            if (ChoiceScreen.isWaitingForChoiceToBeMade)
-            {
+		if (Input.GetKeyDown(KeyCode.Mouse1))
+		{
+			if (ChoiceScreen.isWaitingForChoiceToBeMade)
+			{
 				return;
-            }
-            if (!saveLoadPanel.gameObject.activeInHierarchy)
-            {
+			}
+			if (!saveLoadPanel.gameObject.activeInHierarchy)
+			{
 				saveLoadPanel.gameObject.SetActive(true);
 				//animacion
 				saveLoadPanel.LoadFilesOntoScreen(saveLoadPanel.currentSaveLoadPage);
 			}
 			else
-            {
+			{
 				//fadeoff
-            }
+			}
 
-        }
-
+		}
 
     }
+
+	public void ActivateLoadPanel()
+    {
+		if (ChoiceScreen.isWaitingForChoiceToBeMade)
+		{
+			return;
+		}
+		if (!saveLoadPanel.gameObject.activeInHierarchy)
+		{
+			saveLoadPanel.gameObject.SetActive(true);
+			//animacion
+			saveLoadPanel.LoadFilesOntoScreen(saveLoadPanel.currentSaveLoadPage);
+		}
+		else
+		{
+			//fadeoff
+		}
+	}
 
 	//COSAS DE AUTO//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public bool autoOn = false;
@@ -935,4 +951,22 @@ public class NovelController : MonoBehaviour
 
 		TransitionMaster.ShowScene(show, spd, smooth, transTex);
 	}
+
+
+
+	/// <summary>
+	/// ///////////////////////////////TEMPORAL//////////////////////////////////////////
+	/// </summary>
+	public void ExitGame()
+    {
+		Application.Quit();
+    }
+
+	public void ReturnToMainMenu()
+    {
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+    }
+
+	/////////////////////////////TEMPORAL////////////////////////////////////////////////
+
 }
