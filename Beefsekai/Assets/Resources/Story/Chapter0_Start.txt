@@ -38,7 +38,7 @@ Yo "N-no puede ser. ¿Y ahora qué? ¿Qué va a pasar conmigo?"
 
 choice "Estoy bastante confundido"
 {
-  "Y quien tiene la autoridad?"
+  "¿Y quien tiene la autoridad?"
  *Madrina "Alguien a quien le debo un favor, quizá algun dia lo conozcas"
   "Algo parecido?"
 	*Madrina "Si, Mira. yo no pertenezco exactamente a tu mundo, pero el mio tiene problemas. Veras..."
