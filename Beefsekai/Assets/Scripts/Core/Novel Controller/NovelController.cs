@@ -615,6 +615,18 @@ public class NovelController : MonoBehaviour
 				}
 				break;
 
+			case "Padres":
+				if (calc == "sum")
+				{
+					GAMEFILE.activeFile.affPadres += 1;
+				}
+				else if (calc == "rest")
+				{
+					GAMEFILE.activeFile.affPadres -= 1;
+				}
+				break;
+
+
 			case "Asshimilos":
                 if (calc == "sum")
                 {

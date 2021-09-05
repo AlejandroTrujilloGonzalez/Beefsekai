@@ -44,7 +44,7 @@ narrator "Gallahim hace gestos con las manos, indicando algo estrecho. El tal Mi
 Asshimilos "Prefiero no hablar de tamaño, si no te importa."
 narrator "Hay un ambiente incómodo durante un segundo. Auguste tose."
 Asshimilos "Discúlpale, de verdad. Le traiciona la boca algunas veces. ¿Dónde quieres ir, Auguste?"
-narrator "Tras buscar un momento y que todo el mundo salude a mis acompañantes, llegamos a donde aparecí. Mi cubo de basura mellado indica que nadie se ha molestado en acercarse por aquí." setBackground(Alcantarilla)
+narrator "Tras buscar un momento y que todo el mundo salude a mis acompañantes, llegamos a donde aparecí. Mi cubo de basura mellado indica que nadie se ha molestado en acercarse por aquí." setBackground(Negro)
 "De repente, Asshimilos empieza a gemir y se encoge de dolor. Gallahim y Auguste, pálidos, se abalanzan sobre él, bloqueándome la vista."
 Gallahim "¡MILO! ¿Estás bien? ¿Qué tienes, hermano?"
 Asshimilos "Agua. {wa 1} Agua... por favor."
@@ -86,8 +86,8 @@ Auguste "¿Señor?"
 Gallahim "Vamos a comer algo. Mis padres siempre me han dicho que con el estómago vacío no se resuelven misterios. Y es la primera vez que veo a Milo tan agitado."
 Asshimilos "¡Tú también lo estarías, si entendieras que estamos delante de alguien imposible!"
 Auguste "¿Dónde desea ir?"
-Gallahim "Vamos a la taberna. Es lo más cercano. Llamaremos a Feli, que pidió antes algo de comida."setBackground(BridgeTexture) 
-narrator "Nos sentamos en una parte aislada de la taberna, donde tengo a varias personas mirándome fijamente, con un plato de comida delante de nosotros. Gallahim tiene una sonrisa de oreja a oreja, Feliodora arruga el hocico y Asshimilos no deja de hablar en voz queda."enter(Feliodora) setPosition(Feliodora,0.66) move(Gallahim,0.33)
+Gallahim "Vamos a la taberna. Es lo más cercano. Llamaremos a Feli, que pidió antes algo de comida."setBackground(Taberna) enter(Feliodora) setPosition(Feliodora,0.66) move(Gallahim,0.33)
+narrator "Nos sentamos en una parte aislada de la taberna, donde tengo a varias personas mirándome fijamente, con un plato de comida delante de nosotros. Gallahim tiene una sonrisa de oreja a oreja, Feliodora arruga el hocico y Asshimilos no deja de hablar en voz queda."
 Asshimilos "Esto no es normal. Esto es imposible. Es increíble, no, es más, me niego a creérmelo. Aquí tiene que haber truco..."
 narrator "Feliodora se ríe mientras devora un trozo de carne más grande que mi cabeza."
 Feliodora "No se lo tengas en cuenta, dicen que el saber no ocupa lugar, pero como ves, en tan poco espacio no cabe ni la educación."

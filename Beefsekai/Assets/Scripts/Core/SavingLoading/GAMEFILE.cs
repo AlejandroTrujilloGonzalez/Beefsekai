@@ -34,6 +34,7 @@ public class GAMEFILE
     public int affFeliodora = 0;
     public int affGallahim = 0;
     public int affAsshimilos = 0;
+    public int affPadres = 0;
 
     public GAMEFILE()//Faltan cosas a diferencia con el video
     {
@@ -53,6 +54,7 @@ public class GAMEFILE
         this.affFeliodora = 0;
         this.affGallahim = 0;
         this.affAsshimilos = 0;
+        this.affPadres = 0;
     }
 
     //Datos de los personajes. Entiendo que aqui deberiamos meter tambien el nivel de afinidad

@@ -1,0 +1,5 @@
+narrator "¡Hasta aquí el capítulo 1 de Beefsekai!"
+narrator "Queríamos que esta demo sirviese como el primer día en un nuevo mundo, como una ventana a muchas aventuras de la mano de algunos amigos… ¿o quizá algo más?"
+narrator "Aún nos queda mucho camino hasta llegar al final, ¡y no os creáis que habéis conocido a todo el mundo!"
+narrator "Seguidnos en redes sociales, @beefsekai y no os perdáis una sola actualización." enter(Gallahim) move(Gallahim,0.1) enter(Feliodora) move(Feliodora,0.2) enter(Bartowolo) move(Bartowolo, 0.3) enter(Asshimilos) move (Asshimilos, 0.4) enter(Auguste) move(Auguste,0.5) enter(Allon) move(Allon, 0.6) enter(Thiagus) move(Thiagus, 0.7) enter(Madrina) move(Madrina, 0.9)
+narrator "¡El equipo de Beefsekai os damos las gracias y esperamos volver a veros pronto!"
