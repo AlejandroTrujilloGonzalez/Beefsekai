@@ -10,9 +10,9 @@ narrator "Feliodora da un trago a su bebida. Sus ojos centellean."
 Feliodora "No te olvides de que son los que mandan aquí. Y, oye..."
 Yo "¿Sí?"
 Feliodora "Come algo más. De verdad, me estoy poniendo nerviosa de verte así." enter(Asshimilos) setPosition(Asshimilos,0.9) move(Feliodora,0.66)
-narrator "Me vuelvo a la mesa con un bocadillo que Feliodora en la mano. Auguste ha vuelto y Gallahim se está riendo a su lado." enter(Guardaespaldas) setPosition(Guardaespaldas,0.06) enter(Asshimilos) setPosition(Asshimilos,0.9)
+narrator "Me vuelvo a la mesa con un bocadillo que Feliodora en la mano. Auguste ha vuelto y Gallahim se está riendo a su lado." enter(Auguste) setPosition(Auguste,0.06) enter(Asshimilos) setPosition(Asshimilos,0.9)
 Asshimilos "¡Y le dije: pues no sé, pero yo pasé por aquí esta mañana y había un obrero amontonando ladrillos!" enter(Gallahim) setPosition(Gallahim,0.33)
-narrator "Gallahim se ríe a carcajadas. Auguste, con una mano sobre la cara, de una forma muy discreta."enter(Auguste) setPosition(Auguste,0.06)
+narrator "Gallahim se ríe a carcajadas. Auguste, con una mano sobre la cara, de una forma muy discreta."
 Gallahim "Oh, ¿ya estás de vuelta? Veo que has cogido algo rico, esa carne es de las más jugosas que vas a probar por aquí."
 Auguste "Los Bouler les esperan cuando estén preparados."
 
@@ -92,5 +92,5 @@ Gallahim "Mejor vámonos. Te llevaré al baño y te daré algo que encuentre. Po
 Allon "...¡cuero! ¡No te puedes equivocar con unas buenas bandas de cuero!" exit(Allon)
 Thiagus "...te digo que no, que no son formas, un tabardo bonito le sirve hasta de túnica, ¿qué mide, metro sesenta?" exit(Thiagus)
 narrator "Auguste nos acompaña al baño y me da unos ropajes sencillos. Me quedan enormes. El baño es colosal, lleno de grifos mágicos y productos que no había visto nunca."
-narrator "Después de eso, vamos a la habitación de Gallahim, donde hablamos de mi mundo hasta que nos quedamos dormidos. Mi cama se hizo para un amigo suyo, así que caben cinco como yo." setBackground(Negro) exit(Gallahim) exit(Auguste) exit(Feliodora)
+narrator "Después de eso, vamos a la habitación de Gallahim, donde hablamos de mi mundo hasta que nos quedamos dormidos. Mi cama se hizo para un amigo suyo, así que caben cinco como yo."exit(Gallahim) exit(Auguste) setBackground(Negro) 
 Load(DemoOver)
