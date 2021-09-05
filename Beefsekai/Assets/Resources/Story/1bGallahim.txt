@@ -68,7 +68,7 @@ Gallahim "Lo siento, papá."
 choice "Intervenir…"
 {
   "No es culpa tuya. No podías haber previsto esto."
-	*Auguste "Señor, tiene razón. Nadie podía haber estado preparado para una eventualidad como ésta.""
+	*Auguste "Señor, tiene razón. Nadie podía haber estado preparado para una eventualidad como ésta."
   "Siento la confusión causada."
 	*Thiagus "No es tu culpa, por favor. Entendemos lo complicado de la situación." changeAffinityOf(Padres,sum)
 }

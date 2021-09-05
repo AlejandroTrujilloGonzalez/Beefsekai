@@ -578,10 +578,19 @@ public class NovelController : MonoBehaviour
 			case "checkAffinity"://Dentro del txt para comparar tiene que ser el siguiente orden y sin separaciones entre las comillas-- > checkAffinity(NombreDePersonaje,NombredelArchivo,AfinidadNecesariaParaContinuar(int))
 				Command_CheckAffinityNecesaryToContinue(data[1]);
 				break;
+
+			case "loadScene":
+				Command_LoadScene(data[1]);
+				break;
 		}
 
 	}
 
+
+	public void Command_LoadScene(string sceneName)
+    {
+		UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+    }
 
 	//AQUI EMPIEZAN LOS COMANDOS PARA EL INTERCAMBIO DE AFINIDADES////////////////////////////////////////////////////////////////////////////////////////
 
