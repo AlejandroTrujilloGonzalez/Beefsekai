@@ -84,7 +84,8 @@ public class Character
 
             if(enabled)
                 visibleInScene = true;
-        }       
+        }
+
     }
 
     //Crear un nuevo personaje//////////////////////////////////////////////////////////////////////////////////
