@@ -5,7 +5,7 @@ Voz "Bien... {wa 1}Ya está aquí."
 narrator "..."
 "..."
 "..."
-Yo "¿Dónde... {wa 1}estoy?"
+Yo "¿Dónde... {wa 1}estoy?" playMusic(alcantarilla)
 narrator "Abro los ojos, si es que los tenía cerrados, pero... {wa 1}no veo nada."
 Yo "¿Cómo he terminado aquí?"
 narrator "¿Qué ha pasado?"
@@ -40,7 +40,7 @@ choice "Estoy bastante confundido"
 {
   "¿Y quien tiene la autoridad?"
  *Madrina "Alguien a quien le debo un favor, quizá algun dia lo conozcas"
-  "Algo parecido?"
+  "¿Algo parecido?"
 	*Madrina "Si, Mira. yo no pertenezco exactamente a tu mundo, pero el mio tiene problemas. Veras..."
 }
 
@@ -73,15 +73,15 @@ Madrina "¡Sabía que te lo tomarías bien! Eres una persona muy inteligente."
 Yo "Sí... {wa 1}lo que tú digas."
 narrator "Parece más emocionada que antes. Como siga moviendo la cola así, va a despegar."
 Yo "¿Y qué se supone que tengo que hacer ahora? Aviso que yo nunca he ido más lejos que Sevilla Est.."
-Madrina "¡No te preocupes! De hecho, estamos a punto de salir. ¡ALLÁ VAMOS!"exit(Madrina)
-Yo "Espera, ¿cómo que salir? ¿CÓMO QUE ALLÁAAAAAAAAAAAAAAAAAAAAAAAAA....?"setBackground(Teletransporte)
+Madrina "¡No te preocupes! De hecho, estamos a punto de salir. ¡ALLÁ VAMOS!"exit(Madrina) playMusic(null)
+Yo "Espera, ¿cómo que salir? ¿CÓMO QUE ALLÁAAAAAAAAAAAAAAAAAAAAAAAAA....?"setBackground(Teletransporte) playSound(teleportSFX)
 
 narrator "..."
 narrator "Me vuelvo a despertar, esta vez sintiendo lo que sin duda es un cuerpo físico adornado con una serie de dolores particulares."
 narrator "La luz del día ciega que es una barbaridad."
 narrator "Cuando abro los ojos, me doy cuenta de que estoy en un cubo de basura que huele a gasolinera vieja."
 Yo "Puaj… {wa 1}¿Dónde se supone que me ha dejado esta señora? {wa 1}Podría haber sido más considerada, casi la palmo, otro como éste y sí que voy pal cajón, eh…"setBackground(Mercado)
-narrator "Me callo al percibir gente a mi alrededor."
+narrator "Me callo al percibir gente a mi alrededor." playMusic(crowd)
 narrator "Me encuentro en una calle llena de… bueno, parecen seres humanos. Pero también hay algo parecido a animales. Son como seres humanos, pero con pelo, hocico, y orejas de animal…"
 narrator "Pero lo más importante, todos y cada uno de ellos parecen armarios roperos. No había visto tanto músculo junto en mi vida."
 narrator "Me levanto a duras penas y entre varios dolores, buscando a mi alrededor por si hay algo que pueda reconocer."
@@ -95,7 +95,7 @@ narrator "En una pared hay un gran trozo de metal pulido, y observo mi reflejo e
 narrator "Complexión, delgada. Pelo, claro. Brazos... {wa 1}normaluchos. Ropa... prefiero no pensar en ello."
 narrator "En ese momento, me doy cuenta de los ojos de la gente clavados en mí. Soy la única persona que no parece que desayune esteroides a la proteína."
 Yo "Vale, tengo que salir de aquí."
-Voz "¿Y a dónde exactamente quieres ir, tapón?"enter(Tigre) setPosition(Tigre,0.3) next
+Voz "¿Y a dónde exactamente quieres ir, tapón?"enter(Tigre) setPosition(Tigre,0.3) next playMusic(null) playMusic(sillyTheme)
 narrator "Veo ante mí a dos bicharracos. Uno es un tigre venido a más y el otro una estantería con patas."enter(Macarra) setPosition(Macarra,0.6) next
 narrator "Me miran con aspecto burlón. No me están temblando las piernas, para nada."
 Tigre "¿Qué tenemos aquí? No había visto a alguien tan canijo en mi vida."
@@ -118,7 +118,7 @@ Tigre "Nosotros no estábamos haciendo nada, lo juro, pero escuchamos un ruido e
 Desconocida "¿Y exactamente qué tiene que ver eso con vosotros?"
 narrator "Sus ojos felinos brillan y en sus manos tiene un artilugio que no se parece a nada que haya visto en mi vida. Entre cada sílaba se escucha un gruñido muy grave."
 Desconocida "No os quiero volver a ver por aquí. ¿Estamos?"
-narrator "Los matones asienten al unísono y salen pitando."exit(Tigre;Macarra)
+narrator "Los matones asienten al unísono y salen pitando."exit(Tigre;Macarra) playMusic(null) playMusic(crowd)
 Yo "Gracias. Creo que me acaba usted de salvar el pellejo." 
 Desconocida "De nada. Mi nombre es Feliodora Tuercacero, ingeniera mecánica y regente de este puesto."
 Yo "Encantado. Mi nombre es..."

@@ -33,7 +33,7 @@ Asshimilos "Feli, te adoro, pero a veces te mataba"
 Feliodora "Y ahí reside el amor, en no hacerlo"
 narrator "Asshimilos suspira como un viejito y se gira hacia a mí"
 Asshimilos "Bueno, vámonos, antes de que me deporten por asesinato"
-narrator "Me despido de los demás animadamente, aunque ya noto las ganas de dormir en los ojos" exit(Gallahim) exit(Feliodora) exit(Auguste) move(Asshimilos,0.5) setBackground(negro)
+narrator "Me despido de los demás animadamente, aunque ya noto las ganas de dormir en los ojos" exit(Gallahim) exit(Feliodora) exit(Auguste) move(Asshimilos,0.5) setBackground(negro) playMusic(null) playMusic(relax)
 narrator "El estudio de Asshimilos está a una caminata larga de la taberna, pero la distancia se hace más larga porque ni siquiera me habla"
 narrator "Sólo me mira de reojo, como si me fuera a escapar en algún momento"
 narrator "Cuando llegamos, hace un movimiento de manos y susurra algo, haciendo que se abra la puerta"
@@ -115,5 +115,5 @@ Yo "Está bien, ha sido interesante. Me ha acercado un poco más a este mundo"
 narrator "Asshimilos sonríe y se aleja hacia el centro de la sala. De nuevo, hace un movimiento, esta vez con su bara, y aparecen dos camas flotantes"
 narrator "Con otro movimiento de manos mágico, Asshimilos cambia su atuendo a un pijama, se sube a una de las camas y me indica que duerma cuando quiera"
 narrator "Cuando me tumbo y me arropo, Asshimilos se ofrece a hablarme sobre las estrellas de este mundo para ayudarme a dormir, y comienza a hacerlo hasta que caigo en los brazos de Morfeo" exit(Asshimilos)
-narrator "Se siente cálido y bien. Duermo profundamente"setBackground(negro)
+narrator "Se siente cálido y bien. Duermo profundamente"setBackground(negro) playMusic(null)
 Load(DemoOver)

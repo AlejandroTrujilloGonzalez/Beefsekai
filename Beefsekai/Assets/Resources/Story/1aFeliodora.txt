@@ -50,7 +50,7 @@ narrator "Gallahim mira a Feliodora y esta asiente, recogiendo su bolsa y girán
 Feliodora "Bueno, ¿vamos? Mi sitio no está lejos de aquí"
 Yo "Muéstrame el camino" 
 narrator "Me despido de los demás y, dándome un empujón mental, sigo a Feli" setBackground(taller) exit(Asshimilos) exit(Gallahim) exit(Auguste) move(Feliodora,0.5)
-Feliodora "Bueno, ¡aquí estamos!"
+Feliodora "Bueno, ¡aquí estamos!" playMusic(null) playMusic(relax)
 narrator "El lugar parece hecho un desastre, pero de esos que están a la vez ordenados. Hay una pequeña mesa de trabajo llena de maquinaria en una esquina del salón, pero a su alrededor hay más restos de piezas"
 narrator "En realidad, más que un taller, parece su propia casa"
 Yo "Pensaba que íbamos a tu taller…"
@@ -100,5 +100,5 @@ narrator "Aún así, se esfuerza en explicarme por encima lo que está pasando."
 narrator "En poco tiempo las palomitas y las bebidas se acaban, y yo noto el peso del cansancio en mis párpados. Antes de que me de cuenta, estoy en un profundo sueño" exit(Feliodora)
 narrator "En los brazos de Morfeo, aún noto que alguien me coge y me pone en el sofá, arropándome y dándome una palmadita en la cabeza"
 Feliodora "Dulces sueños, flacucha"
-narrator "Dormí plácidamente" setBackground(negro)
+narrator "Dormí plácidamente" setBackground(negro) playMusic(null)
 Load(DemoOver)
