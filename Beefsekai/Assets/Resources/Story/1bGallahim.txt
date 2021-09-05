@@ -92,5 +92,5 @@ Gallahim "Mejor vámonos. Te llevaré al baño y te daré algo que encuentre. Po
 Allon "...¡cuero! ¡No te puedes equivocar con unas buenas bandas de cuero!" exit(Allon)
 Thiagus "...te digo que no, que no son formas, un tabardo bonito le sirve hasta de túnica, ¿qué mide, metro sesenta?" exit(Thiagus)
 narrator "Auguste nos acompaña al baño y me da unos ropajes sencillos. Me quedan enormes. El baño es colosal, lleno de grifos mágicos y productos que no había visto nunca."
-narrator "Después de eso, vamos a la habitación de Gallahim, donde hablamos de mi mundo hasta que nos quedamos dormidos. Mi cama se hizo para un amigo suyo, así que caben cinco como yo." setBackground(Negro)
+narrator "Después de eso, vamos a la habitación de Gallahim, donde hablamos de mi mundo hasta que nos quedamos dormidos. Mi cama se hizo para un amigo suyo, así que caben cinco como yo." setBackground(Negro) exit(Gallahim) exit(Auguste)
 Load(DemoOver)
