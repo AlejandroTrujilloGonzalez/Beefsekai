@@ -250,6 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1309038752236121563}
   - component: {fileID: 869106548409582689}
+  - component: {fileID: 7783573487356818538}
   m_Layer: 5
   m_Name: Character[Bartowolo]
   m_TagString: Untagged
@@ -286,3 +287,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8878605090616000047}
   m_CullTransparentMesh: 1
+--- !u!225 &7783573487356818538
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8878605090616000047}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

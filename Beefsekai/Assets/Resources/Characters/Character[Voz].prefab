@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2846940253422323268}
   - component: {fileID: 4154378318828138494}
+  - component: {fileID: 3597300338886459149}
   m_Layer: 5
   m_Name: Character[Voz]
   m_TagString: Untagged
@@ -46,6 +47,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5665487190186694064}
   m_CullTransparentMesh: 1
+--- !u!225 &3597300338886459149
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665487190186694064}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5832468852571230190
 GameObject:
   m_ObjectHideFlags: 0

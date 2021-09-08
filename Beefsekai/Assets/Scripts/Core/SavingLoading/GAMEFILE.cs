@@ -69,7 +69,7 @@ public class GAMEFILE
         public bool facingLeft = true;
         public Vector2 position = Vector2.zero;
 
-
+        public float canvasGroupValue;
 
         public CHARACTERDATA(Character character)
         {
@@ -80,6 +80,8 @@ public class GAMEFILE
             this.bodyExpression = character.renderers.bodyRender.sprite.name;
             this.facingLeft = character.isFacingLeft;
             this.position = character._targetPosition;
+
+            this.canvasGroupValue = character._canvasGroupValue;
         }
     }
 }

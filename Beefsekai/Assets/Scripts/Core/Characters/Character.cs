@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Character
 {
+    
 
     public string characterName;
     [HideInInspector]public RectTransform root;
@@ -53,6 +54,8 @@ public class Character
         root.localScale = new Vector3(-1, 1, 1);
     }
 
+    //COSAS DE ENTER Y EXIT PERSONAJES/////////////////////////////////////////////////////////////////////
+
     public bool isVisibleInScene
     {
         get { return visibleInScene; }
@@ -61,32 +64,71 @@ public class Character
 
     public void FadeOut(float speed = 3, bool smooth = false)
     {
-        Sprite alphaSprite = Resources.Load<Sprite>("Art/CharactersImage/Vacio");
+        canvasGroupValue = 0;
+        if (isEnteringOrExitingScene)
+            CharacterManager.instance.StopCoroutine(enteringExiting);
 
-        lastBodySprite = renderers.bodyRender.sprite;
-        lastFacialSprite = renderers.expressionRenderer.sprite;
+        enteringExiting = CharacterManager.instance.StartCoroutine(ExitingScene(speed, smooth));
+    }
 
-        TransitionBody(alphaSprite, speed, smooth);
-        TransitionExpression(alphaSprite, speed, smooth);
+    public bool isInScene = false;
+    Coroutine enteringExiting = null;
+    public bool isEnteringOrExitingScene { get { return enteringExiting != null; } }
 
-        visibleInScene = false;
+    IEnumerator EnteringScene(float speed = 3, bool smooth = false)
+    {
+        isInScene = true;
+
+
+        while (canvasGroup.alpha < 1)
+        {
+            canvasGroup.alpha = smooth ? Mathf.Lerp(canvasGroup.alpha, 1, speed * Time.deltaTime) : Mathf.MoveTowards(canvasGroup.alpha, 1, speed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+
+        enteringExiting = null;
+    }
+
+    IEnumerator ExitingScene(float speed = 3, bool smooth = false)
+    {
+        isInScene = false;
+        //canvasGroupValue = 0;
+
+        while (canvasGroup.alpha > 0)
+        {
+            canvasGroup.alpha = smooth ? Mathf.Lerp(canvasGroup.alpha, 0, speed * Time.deltaTime) : Mathf.MoveTowards(canvasGroup.alpha, 0, speed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+
+        enteringExiting = null;
+
+        //character is completely faded out and exited the scene. Destroy it so it is no longer saved to file until recalled.
+        //CharacterManager.instance.DestroyCharacter(this);
     }
 
     Sprite lastBodySprite, lastFacialSprite = null;
-
-
     public void FadeIn(float speed = 3, bool smooth = false)
     {
-        if (lastBodySprite != null && lastFacialSprite != null)
-        {
-            TransitionBody(lastBodySprite, speed, smooth);
-            TransitionExpression(lastFacialSprite, speed, smooth);
+        canvasGroupValue = 1;
+        if (isEnteringOrExitingScene)
+            CharacterManager.instance.StopCoroutine(enteringExiting);
 
-            if(enabled)
-                visibleInScene = true;
-        }
-
+        enteringExiting = CharacterManager.instance.StartCoroutine(EnteringScene(speed, smooth));
     }
+
+    public CanvasGroup _canvasGroup
+    {
+        get { return canvasGroup; }
+    }
+
+    CanvasGroup canvasGroup;
+
+    public float _canvasGroupValue
+    {
+        get { return canvasGroupValue; }
+    }
+
+    float canvasGroupValue;
 
     //Crear un nuevo personaje//////////////////////////////////////////////////////////////////////////////////
     public Character(string _name, bool enableOnStart = true)//Esto da una alerta y no entiendo el motivo
@@ -97,6 +139,8 @@ public class Character
         GameObject go = GameObject.Instantiate(prefab, characterManager.characterPanel);
 
         root = go.GetComponent<RectTransform>();
+        canvasGroup = go.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = canvasGroupValue;
         characterName = _name;
 
         //renderers.renderer = go.GetComponentInChildren<RawImage>();

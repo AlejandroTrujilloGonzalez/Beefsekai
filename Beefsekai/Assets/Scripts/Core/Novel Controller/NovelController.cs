@@ -84,7 +84,8 @@ public class NovelController : MonoBehaviour
             GAMEFILE.CHARACTERDATA data = activeGameFile.charactersInScene[i];
             Character character = CharacterManager.instance.CreateCharacter(data.characterName, data.enabled);
 			//character.displayName = data.displayName;
-			//character.canvasGroup.alpha = 1;//	COSAS QUE EL TIENE POR LA CARA Y NO ENSEÑA EN LOS VIDEOS
+			Debug.Log("EL VALOR DEL CANVAS DE" + character.characterName + " ES: " + character._canvasGroupValue);
+			character._canvasGroup.alpha = data.canvasGroupValue;//	COSAS QUE EL TIENE POR LA CARA Y NO ENSEÑA EN LOS VIDEOS
             character.SetBody(data.bodyExpression);
             character.SetExpression(data.facialExpression);
             if (data.facingLeft)
@@ -139,7 +140,9 @@ public class NovelController : MonoBehaviour
             GAMEFILE.CHARACTERDATA data = new GAMEFILE.CHARACTERDATA(character);
 			Debug.Log(character.renderers.bodyRender.name);
             activeGameFile.charactersInScene.Add(data);
-        }
+			Debug.Log("EL VALOR DEL CANVAS DE" + character.characterName + " ES: " + character._canvasGroupValue);
+
+		}
 
         //guarda el background
         BCFC b = BCFC.instance;
@@ -931,17 +934,8 @@ public class NovelController : MonoBehaviour
 		foreach (string s in characters)
 		{
 			Character c = CharacterManager.instance.GetCharacters(s, true, false);
-			if (!c.enabled)
-			{
-				c.renderers.bodyRender.color = new Color(1, 1, 1, 0);
-				c.renderers.expressionRenderer.color = new Color(1, 1, 1, 0);
-				c.enabled = true;
-
-				c.TransitionBody(c.renderers.bodyRender.sprite, speed, smooth);
-				c.TransitionExpression(c.renderers.expressionRenderer.sprite, speed, smooth);
-			}
-			else
-				c.FadeIn(speed, smooth);
+			c.enabled = true;
+			c.FadeIn(speed, smooth);
 		}
 	}
 

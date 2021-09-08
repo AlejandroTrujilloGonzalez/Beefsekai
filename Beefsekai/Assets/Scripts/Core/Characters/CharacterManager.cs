@@ -16,9 +16,14 @@ public class CharacterManager : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+        Debug.Log("Los personajes son" + characters.Count);
+    }
+
     public Character GetCharacters(string characterName, bool createCharacterIfDoesNotExist = true, bool enableCreatedCharacterOnStart = true)//Intenta pillar un personaje por el nombre dado desde la lista de personajes
     {
-        int index = -1;
+        int index;
         if (charactersDictionary.TryGetValue(characterName, out index))
         {
             return characters[index];
@@ -42,6 +47,33 @@ public class CharacterManager : MonoBehaviour
 
         return newCharacter;
     }
+
+    /// <summary>
+    /// Destroys a character in the scene.
+    /// </summary>
+    /// <param name="character"></param>
+    //public void DestroyCharacter(Character character)
+    //{
+    //    if (characters.Contains(character))
+    //        characters.Remove(character);
+
+    //    charactersDictionary.Remove(character.characterName);
+
+    //    Destroy(character.root.gameObject, 0.01f);
+    //}
+
+    ///// <summary>
+    ///// Destroys a character in the scene by this name.
+    ///// </summary>
+    ///// <param name="characterName"></param>
+    //public void DestroyCharacter(string characterName)
+    //{
+    //    Character character = GetCharacters(characterName, false, false);
+    //    if (character != null)
+    //    {
+    //        DestroyCharacter(character);
+    //    }
+    //}
 
     public class CHARACTERPOSITIONS//Esto es para llamar a estos vectores a la hora de introducir una posicion para el personaje, pero se puede introducir a mano////////////
     {

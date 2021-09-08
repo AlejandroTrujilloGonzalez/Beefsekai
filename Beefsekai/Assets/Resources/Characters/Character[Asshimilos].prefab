@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8388800585657411726}
   - component: {fileID: 7660075055134048564}
+  - component: {fileID: -667446608999595297}
   m_Layer: 5
   m_Name: Character[Asshimilos]
   m_TagString: Untagged
@@ -136,6 +137,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123031786762533754}
   m_CullTransparentMesh: 1
+--- !u!225 &-667446608999595297
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123031786762533754}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4161847087160420923
 GameObject:
   m_ObjectHideFlags: 0

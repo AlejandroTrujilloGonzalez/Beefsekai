@@ -160,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5274724418320242219}
   - component: {fileID: 6275372366384398225}
+  - component: {fileID: -1307545137821578215}
   m_Layer: 5
   m_Name: Character[Allon]
   m_TagString: Untagged
@@ -196,6 +197,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2318811129673647583}
   m_CullTransparentMesh: 1
+--- !u!225 &-1307545137821578215
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2318811129673647583}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4485830968753053569
 GameObject:
   m_ObjectHideFlags: 0

@@ -250,6 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6138045513418701941}
   - component: {fileID: 5407622339664418255}
+  - component: {fileID: 6421726807210736159}
   m_Layer: 5
   m_Name: Character[Madrina]
   m_TagString: Untagged
@@ -286,3 +287,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4337864025265500033}
   m_CullTransparentMesh: 1
+--- !u!225 &6421726807210736159
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337864025265500033}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
