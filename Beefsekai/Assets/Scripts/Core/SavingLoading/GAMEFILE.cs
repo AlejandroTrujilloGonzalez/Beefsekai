@@ -70,7 +70,9 @@ public class GAMEFILE
         public Vector2 position = Vector2.zero;
 
         public float canvasGroupValue;
+        public bool isVisible;
 
+        public float canvasTest;
         public CHARACTERDATA(Character character)
         {
             this.characterName = character.characterName;
@@ -82,6 +84,8 @@ public class GAMEFILE
             this.position = character._targetPosition;
 
             this.canvasGroupValue = character._canvasGroupValue;
+            this.isVisible = character.isInScene;
+            this.canvasTest = character._canvasGroup.alpha;
         }
     }
 }

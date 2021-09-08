@@ -86,6 +86,8 @@ public class NovelController : MonoBehaviour
 			//character.displayName = data.displayName;
 			Debug.Log("EL VALOR DEL CANVAS DE" + character.characterName + " ES: " + character._canvasGroupValue);
 			character._canvasGroup.alpha = data.canvasGroupValue;//	COSAS QUE EL TIENE POR LA CARA Y NO ENSEÑA EN LOS VIDEOS
+			character._canvasGroup.alpha = data.canvasTest;
+			character.isInScene = data.isVisible;
             character.SetBody(data.bodyExpression);
             character.SetExpression(data.facialExpression);
             if (data.facingLeft)
