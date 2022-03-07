@@ -38,10 +38,12 @@ public class NovelController : MonoBehaviour
 		saveLoadPanel.gameObject.SetActive(false);
         LoadGamefile(FileManager.LoadFile(FileManager.savPath + "savData/file.txt")[0]);
 
-   //     foreach (var stringcosas in data)
-   //     {
-			//Debug.Log(stringcosas);
-   //     }
+		//     foreach (var stringcosas in data)
+		//     {
+		//Debug.Log(stringcosas);
+		//     }
+
+		Invoke("Next", 0.5f);
 
 	}
 
