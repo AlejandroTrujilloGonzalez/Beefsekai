@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -22,6 +23,14 @@ public class AudioManager : MonoBehaviour
         else
         {
             DestroyImmediate(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            StopSong();
         }
     }
 
@@ -57,6 +66,12 @@ public class AudioManager : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(VolumeLeveling());
+    }
+
+    public void StopSong()
+    {
+        activeSong = new SONG();
+        //activeSong.Stop(); esto peta asique simplemente lo inicializo a una cancion vacia
     }
 
     IEnumerator VolumeLeveling()
@@ -114,6 +129,10 @@ public class AudioManager : MonoBehaviour
         public AudioSource source;
         public AudioClip clip { get { return source.clip; } set { source.clip = value; } }
         public float maxVolume = 1f;
+
+        public SONG()
+        {
+        }
 
         public SONG(AudioClip clip, float _maxVolume, float pitch, float startingVolume, bool playOnStart, bool loop)
         {
