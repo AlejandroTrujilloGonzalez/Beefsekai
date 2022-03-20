@@ -1106,6 +1106,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1462020910}
     m_Modifications:
+    - target: {fileID: 773276948, guid: b49bf107693100e4bac04d274df46455, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439866663, guid: b49bf107693100e4bac04d274df46455, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7369504660498465716, guid: b49bf107693100e4bac04d274df46455, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1917,6 +1925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveLoadPanel: {fileID: 416183076}
   activeGameFileName: 
+  autoNextOnStart: 1
   autoOn: 0
   chapterProgress: 0
   cachedLastSpeaker: 
