@@ -32,18 +32,30 @@ public class NovelController : MonoBehaviour
 
     string activeChapterFile = "";
 
+	public bool autoNextOnStart = true;
+
     // Use this for initialization
     void Start()
 	{
+
+
+		Debug.Log(GAMEFILE.activeFile.autoNextOnStart);
+
+		if (GAMEFILE.activeFile.autoNextOnStart == true)
+		{
+			Invoke("Next", 0.5f);//Esto choca con el cargar partida
+		}
+
 		saveLoadPanel.gameObject.SetActive(false);
         LoadGamefile(FileManager.LoadFile(FileManager.savPath + "savData/file.txt")[0]);
 
-		//     foreach (var stringcosas in data)
-		//     {
-		//Debug.Log(stringcosas);
-		//     }
+        //     foreach (var stringcosas in data)
+        //     {
+        //Debug.Log(stringcosas);
+        //     }
 
-		Invoke("Next", 0.5f);
+
+
 
 	}
 
@@ -51,6 +63,7 @@ public class NovelController : MonoBehaviour
 
     public void LoadGamefile(string gameFileName)
     {
+		GAMEFILE.activeFile.autoNextOnStart = false;
 		activeGameFileName = gameFileName;
 
         string filePath = FileManager.savPath + "savData/GameFiles/" + activeGameFileName + ".txt";
@@ -135,6 +148,8 @@ public class NovelController : MonoBehaviour
 
         activeGameFile.currentTextSystemSpeakerDisplayText = DialogueSystem.instance.speakerNameText.text;
         activeGameFile.currentTestSystemDisplayText = DialogueSystem.instance.speechText.text;
+
+		GAMEFILE.activeFile.autoNextOnStart = false;
 
         //Reune todos los personajes y guarda sus stats
         activeGameFile.charactersInScene.Clear();

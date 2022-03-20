@@ -36,6 +36,8 @@ public class GAMEFILE
     public int affAsshimilos = 0;
     public int affPadres = 0;
 
+    public bool autoNextOnStart;
+
     public GAMEFILE()//Faltan cosas a diferencia con el video
     {
         this.chapterName = "Chapter0_Start";
@@ -55,6 +57,8 @@ public class GAMEFILE
         this.affGallahim = 0;
         this.affAsshimilos = 0;
         this.affPadres = 0;
+
+        this.autoNextOnStart = true;
     }
 
     //Datos de los personajes. Entiendo que aqui deberiamos meter tambien el nivel de afinidad
