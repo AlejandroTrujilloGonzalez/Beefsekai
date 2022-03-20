@@ -55,8 +55,6 @@ public class NovelController : MonoBehaviour
         //     }
 
 
-
-
 	}
 
 	//public bool encryptGameFile = false;

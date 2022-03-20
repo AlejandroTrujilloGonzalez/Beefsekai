@@ -1,11 +1,11 @@
-Voz "Bien... {wa 1}Ya está aquí." 
+Voz "Bien... {wa 1}Ya está aquí." playMusic(alcantarilla)
 "Ahora sólo faltan un par de detalles."
 "Más nos vale que esto funcione."
 
 narrator "..."
 "..."
 "..."
-Yo "¿Dónde... {wa 1}estoy?" playMusic(alcantarilla)
+Yo "¿Dónde... {wa 1}estoy?" 
 narrator "Abro los ojos, si es que los tenía cerrados, pero... {wa 1}no veo nada."
 Yo "¿Cómo he terminado aquí?"
 narrator "¿Qué ha pasado?"
