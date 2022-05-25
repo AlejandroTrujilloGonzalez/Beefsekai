@@ -37,14 +37,19 @@ public class NovelController : MonoBehaviour
     // Use this for initialization
     void Start()
 	{
-
-
 		Debug.Log(GAMEFILE.activeFile.autoNextOnStart);
 
-		if (GAMEFILE.activeFile.autoNextOnStart == true)
+		if (!PlayerPrefs.HasKey("Next"))
 		{
-			Invoke("Next", 0.5f);//Esto choca con el cargar partida
+			PlayerPrefs.SetString("Next", "test");
+			PlayerPrefs.Save();
+			Invoke("Next", 0.5f);
 		}
+
+		//if (GAMEFILE.activeFile.autoNextOnStart == true)
+		//{
+		//	Invoke("Next", 0.5f);//Esto choca con el cargar partida
+		//}
 
 		saveLoadPanel.gameObject.SetActive(false);
         LoadGamefile(FileManager.LoadFile(FileManager.savPath + "savData/file.txt")[0]);
