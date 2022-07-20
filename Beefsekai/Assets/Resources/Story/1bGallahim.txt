@@ -24,7 +24,7 @@ choice "¿Nos esperan?"
 	*Auguste "No se preocupe, les he explicado su situación. No les importa."
 }
 
-narrator "Termino de comerme mi bocadillo y salimos hacia la casa de Gallahim. {w 1} Asshimilos se despide con un salto hacia el cielo que no me esperaría ver de ningún ser humano… o lo que sea que son aquí." exit(Asshimilos) exit(Feliodora) setBackground(Negro)
+narrator "Termino de comerme mi bocadillo y salimos hacia la casa de Gallahim. {w 1} Asshimilos se despide con un salto hacia el cielo que no me esperaría ver de ningún ser humano… o lo que sea que son aquí." exit(Asshimilos) exit(Feliodora) setBackground(MansionGallahim)
 narrator "Tras cruzar el umbral de la gigantesca mansión, nos encontramos en un recibidor lleno de todo el lujo posible. En una fuente en el centro, dos colosos juegan a tirarse bolas de agua." move(Auguste,0.06) move(Gallahim,0.25) enter(Allon) setPosition(Allon,0.60) playMusic(null) playMusic(Relax)
 narrator "Uno de ellos es la viva imagen de Gallahim, pero aún más grande y fuerte. Tiene arrugas en los ojos, pero una mirada feliz." enter(Thiagus) setPosition(Thiagus,0.9)
 narrator "El otro es ligeramente más bajo pero prácticamente igual de ancho. Tiene el pelo plateado y un aire efímero a su alrededor."

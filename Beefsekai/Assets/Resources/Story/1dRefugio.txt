@@ -1,7 +1,7 @@
 narrator "Feliodora arruga el hocico de nuevo."
 Feliodora "No creo que sea la mejor opción, pero desde luego tienes que tener mucho en qué pensar, y este barullo no te debe estar ayudando. Lo puedo entender."exit(Feliodora)
 Asshimilos "No, creo que es lo más sabio. Será mejor ir con los Bouler por la mañana temprano y dedicar esta noche a ordenar tus pensamientos. {wa 1}Yo también tengo mucho en que pensar."exit(Asshimilos)
-narrator "Nos despedimos de Feliodora y de Asshimilos, que se quedan comiendo y bebiendo. Al poco, nos dirigimos a un edificio enorme con una efigie femenina que me es vagamente familiar."setBackground(mercado)
+narrator "Nos despedimos de Feliodora y de Asshimilos, que se quedan comiendo y bebiendo. Al poco, nos dirigimos a un edificio enorme con una efigie femenina que me es vagamente familiar."setBackground(calle3)
 Gallahim "Sigo pensando que sería mejor que te hubieras quedado con uno de nosotros. No me hace gracia perderte de vista toda la noche."
 narrator "Auguste parece exasperado."
 Auguste "No le pasará nada, señor. El refugio es perfectamente seguro y está bendecido por la misma Diosa."

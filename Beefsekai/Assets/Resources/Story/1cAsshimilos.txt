@@ -40,7 +40,7 @@ Asshimilos "Feli, si pudiera embrujar a alguien, tengo una idea muy clara acerca
 Feliodora "Y ahí reside el amor, en no hacerlo."
 narrator "Asshimilos suspira exasperado y se gira hacia a mí."
 Asshimilos "Bueno, vámonos, antes de que me deporten por gaticidio."
-narrator "Me despido de los demás animadamente, aunque ya noto las ganas de dormir en los ojos" exit(Gallahim) exit(Feliodora) exit(Auguste) move(Asshimilos,0.5) setBackground(negro) playMusic(null) playMusic(relax)
+narrator "Me despido de los demás animadamente, aunque ya noto las ganas de dormir en los ojos" exit(Gallahim) exit(Feliodora) exit(Auguste) move(Asshimilos,0.5) setBackground(FondoCutreMilo) playMusic(null) playMusic(relax)
 narrator "El estudio de Asshimilos está a una caminata larga de la taberna, pero la distancia se hace más larga porque ni siquiera me habla."
 narrator "Sólo me mira de reojo, como si me fuera a escapar en algún momento."
 narrator "Cuando llegamos, levanta la vara y susurra algo, haciendo que se abra la puerta"
