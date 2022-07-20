@@ -188,7 +188,7 @@ public class NovelController : MonoBehaviour
         }
 
 		//Guardado datos/fecha
-		activeGameFile.modificationDate = System.DateTime.Now.ToString();
+		activeGameFile.modificationDate = System.DateTime.Now.ToString("MM/dd/yyyy") + "\n" + System.DateTime.Now.ToString("HH:mm:ss");
 
 		//FileManager.SaveJSON(filePath, activeGameFile);
 		//FileManager.SaveEncryptedJSON(filePath, activeGameFile, keys);//Faltan cosas a diferencia con el video
@@ -207,8 +207,10 @@ public class NovelController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+
+
 		//Next
-		if (Input.GetKeyDown(KeyCode.RightArrow))
+		if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Space))
 		{
 			Next();
 		}
@@ -220,14 +222,14 @@ public class NovelController : MonoBehaviour
         }
 
 		//Back chustero
-        if (chapterProgress >= 2)
-        {
-			if (Input.GetKeyDown(KeyCode.LeftArrow) && chapterProgress >= 2)
-			{
-				chapterProgress -= 2;
-				Next();
-			}
-		}
+  //      if (chapterProgress >= 2)
+  //      {
+		//	if (Input.GetKeyDown(KeyCode.LeftArrow) && chapterProgress >= 2)
+		//	{
+		//		chapterProgress -= 2;
+		//		Next();
+		//	}
+		//}
 
 		if (Input.GetKeyDown(KeyCode.Mouse1))
 		{
@@ -319,6 +321,7 @@ public class NovelController : MonoBehaviour
 		_next = true;
 	}
 
+	private bool weAreInAnChoice;
 	public bool isHandlingChapterFile { get { return handlingChapterFile != null; } }
 	Coroutine handlingChapterFile = null;
 	[HideInInspector] public int chapterProgress = 0;
@@ -337,6 +340,7 @@ public class NovelController : MonoBehaviour
 				//this is a choice
 				if (line.StartsWith("choice"))
 				{
+					weAreInAnChoice = true;
 					yield return HandlingChoiceLine(line);
 					chapterProgress++;
 				}
@@ -345,6 +349,7 @@ public class NovelController : MonoBehaviour
 				{
 					HandleLine(line);
 					chapterProgress++;
+					weAreInAnChoice = false;
 					while (isHandlingLine)
 					{
 						yield return new WaitForEndOfFrame();

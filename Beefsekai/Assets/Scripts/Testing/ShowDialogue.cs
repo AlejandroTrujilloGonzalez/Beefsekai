@@ -24,18 +24,18 @@ public class ShowDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!dialogue.isSpeaking || dialogue.isWaitingForUserInput)
-            {
-                if (index >= s.Length)
-                {
-                    return;
-                }
-                Say(s[index]);
-                index++;
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (!dialogue.isSpeaking || dialogue.isWaitingForUserInput)
+        //    {
+        //        if (index >= s.Length)
+        //        {
+        //            return;
+        //        }
+        //        Say(s[index]);
+        //        index++;
+        //    }
+        //}
     }
 
     public void Say(string s)

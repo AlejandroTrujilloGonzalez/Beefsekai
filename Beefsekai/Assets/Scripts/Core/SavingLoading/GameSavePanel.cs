@@ -49,7 +49,7 @@ public class GameSavePanel : MonoBehaviour
                         ImageConversion.LoadImage(previewImage, previewImageData);
                         file.previewImagePath = previewImage;
                         b.previewDisplay.texture = file.previewImagePath;
-                        b.dateTimeText.text = page.ToString() + file.modificationDate;
+                        b.dateTimeText.text = page.ToString() + "\n" + file.modificationDate;
                     }
                     else
                     {
@@ -60,7 +60,7 @@ public class GameSavePanel : MonoBehaviour
                         ImageConversion.LoadImage(previewImage, previewImageData);
                         file.previewImagePath = previewImage;
                         b.previewDisplay.texture = file.previewImagePath;
-                        b.dateTimeText.text = page.ToString() + file.modificationDate;
+                        b.dateTimeText.text = page.ToString() + "\n" + file.modificationDate;
                     }
 
 
