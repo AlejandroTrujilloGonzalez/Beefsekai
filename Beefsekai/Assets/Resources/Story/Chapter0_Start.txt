@@ -84,7 +84,7 @@ narrator "..."
 narrator "Me vuelvo a despertar, esta vez sintiendo lo que sin duda es un cuerpo físico adornado con una serie de dolores particulares."
 narrator "La luz del día ciega que es una barbaridad."
 narrator "Cuando abro los ojos, me doy cuenta de que estoy en un cubo de basura que huele a gasolinera vieja."
-Yo "Puaj… {wa 1}¿Dónde narices me ha dejado esta señora? {wa 1}Podría haber sido más considerada, casi la palmo, otro como éste y sí que voy pal cajón, eh…"setBackground(Mercado3)
+Yo "Puaj… {wa 1}¿Dónde narices me ha dejado esta señora? {wa 1}Podría haber sido más considerada, casi la palmo, otro como éste y sí que voy pal cajón, eh…"setBackground(Calle)
 narrator "Me callo al percibir gente a mi alrededor." playMusic(crowd)
 narrator "Me encuentro en una calle llena de… bueno, parecen seres humanos. Pero también hay algo parecido a animales. Son como seres humanos, pero con pelo, hocico, y orejas de animal…"
 narrator "Pero lo más importante, todos y cada uno de ellos parecen armarios roperos. No había visto tanto músculo junto en mi vida."
