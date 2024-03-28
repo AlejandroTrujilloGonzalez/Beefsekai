@@ -1,2 +1,2 @@
 # Beefsekai
-A Visual Novel project make in collaboration with others devs and artist
+A Visual Novel project made in collaboration with others devs and artist
